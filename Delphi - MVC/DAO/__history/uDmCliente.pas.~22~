@@ -1,0 +1,168 @@
+unit uDmCliente;
+
+interface
+
+uses
+  SysUtils, Classes, uDmConexao, DB, ZAbstractRODataset, ZAbstractDataset,
+  ZDataset, uClienteModel;
+
+type
+  TDMCliente = class(TDataModule)
+    sqlPesquisar: TZQuery;
+    sqlinserir: TZQuery;
+    sqlAlterar: TZQuery;
+    sqlExcluir: TZQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function GerarId:integer;
+    procedure Pesquisar(sNome:string);
+    procedure CarregaCliente(objCliente:TCliente; codigo:integer);
+    function Inserir(objCliente:TCliente; out sErro:string):Boolean;
+    function Alterar(objCliente:TCliente; out sErro:string):Boolean;
+    function Excluir(iCodigo:Integer; out sErro:string):Boolean;
+  end;
+
+var
+  DMCliente: TDMCliente;
+
+implementation
+
+{$R *.dfm}
+
+{ TDMCliente }
+
+procedure TDMCliente.Pesquisar(sNome:string);
+begin
+  with DMCliente.sqlPesquisar do
+  begin
+    Close;
+    SQL.Add(' select id, nome from cliente '
+          + ' where nome like :nome');
+    ParamByName('nom  e').AsString := sNome;
+    Open;
+  end;
+end;
+function TDMCliente.Alterar(objCliente: TCliente; out sErro: string): Boolean;
+begin
+  with sqlAlterar,objCliente do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('update cliente set nome = :nome, tipo = :tipo '
+          +' documento = :documento, telefone = :telefone '
+          +' where id = :id ');
+    ParamByName('id').AsInteger := ID;
+    ParamByName('nome').AsString := Nome;
+    ParamByName('tipo').AsString := Tipo;
+    ParamByName('documento').AsString := Documento;
+    ParamByName('telefone').AsString := Telefone;
+    try
+      ExecSQL;
+      Result := True;
+    except on E:Exception do
+    begin
+      sErro := 'Erro ao Alterar cliente' +sLineBreak+E.Message;
+      Result := False;
+    end;
+  end;
+  end;
+end;
+
+procedure TDMCliente.CarregaCliente(objCliente: TCliente; codigo: integer);
+var
+  sqlCliente : TZQuery;
+begin
+  sqlCliente := TZQuery.Create(nil);
+  with sqlCliente do
+  begin
+    try
+      Connection := DMConexao.Conexao;
+      SQL.Clear;
+      SQL.Add('select * from cliente'
+             +' where id = :codigo');
+      ParamByName('codigo').AsInteger := codigo;
+      Open;
+
+      // criar função para preencher este objeto e retorná-lo
+      with objCliente do
+      begin
+        ID := FieldByName('id').AsInteger;
+        Nome := FieldByName('nome').AsString;
+        Tipo := FieldByName('tipo').AsString;
+        Documento := FieldByName('documento').AsString;
+        Telefone := FieldByName('telefone').AsString;
+      end;
+    finally
+      FreeAndNil(sqlCliente);
+    end;
+  end;
+end;
+
+function TDMCliente.Excluir(iCodigo: Integer; out sErro: string): Boolean;
+begin
+  with sqlExcluir do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add(' delete from cliente where id = :id ');
+    ParamByName('id').AsInteger := iCodigo;
+    try
+      ExecSQL;
+      Result:=True;
+      except on E:exception do
+      begin
+        sErro := 'Erro ao excluir cliente'+sLineBreak+E.Message;
+        Result := False;
+      end;
+    end;
+  end;
+end;
+
+function TDMCliente.GerarId: integer;
+var
+  sqlId : TZQuery;
+begin
+  sqlId := TZQuery.Create(nil);
+  sqlId.Connection := DMConexao.Conexao;
+  try
+    with sqlId do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('select IfNull(max(id),0)+1 as seq from cliente ');
+      Open;
+      Result := FieldByName('seq').AsInteger;
+    end;
+  finally
+    FreeAndNil(sqlId);
+  end;
+end;
+
+function TDMCliente.Inserir(objCliente: TCliente; out sErro: string): Boolean;
+begin
+  with sqlinserir,objCliente do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('insert into cliente(id,nome,tipo, documento, telefone) '
+          +' values(:id,:nome,:tipo,:documento,:telefone)');
+    ParamByName('id').AsInteger := GerarId();
+    ParamByName('nome').AsString := Nome;
+    ParamByName('tipo').AsString := Tipo;
+    ParamByName('documento').AsString := Documento;
+    ParamByName('telefone').AsString := Telefone;
+    try
+      ExecSQL;
+      Result := True;
+    except on E:Exception do
+    begin
+      sErro := 'Erro ao inserir cliente' +sLineBreak+E.Message;
+      Result := False;
+    end;
+  end;
+  end;
+end;
+
+end.

@@ -1,0 +1,51 @@
+unit uLoginDao;
+
+interface
+
+uses uConexao,SysUtils,ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uLoginModel;
+
+
+type
+  TLogin = class
+    private
+      FConn:TConexao;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      function Logar(LoginModel:TLoginModel):Boolean;
+  end;
+
+implementation
+
+{ TLogin }
+
+
+constructor TLogin.Create;
+begin
+  FConn := TConexao.Create;
+end;
+
+destructor TLogin.Destroy;
+begin
+  FreeAndNil(FConn);
+  inherited;
+end;
+
+function TLogin.Logar: Boolean;
+var
+  Qry:TZQuery;
+begin
+  Qry := FConn.CriaQuery;
+  try
+    Qry.Close;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('select * from login where login = :log and senha = :pass');
+    Qry.ParamByName('log').AsString := 'ok';{receber o objeto da DAO}
+  finally
+    FreeAndNil(qry);
+  end;
+  result := true;
+end;
+
+end.

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/10 13:13:24.287.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\unwebmodule.pas</Transaction>
+    <Transaction>2018/07/10 13:13:24.334.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\unwebmodule.dfm</Transaction>
+    <Transaction>2018/07/10 13:13:35.424.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\Server.dproj</Transaction>
+    <Transaction>2018/07/10 13:15:02.815.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\undatamodule.pas</Transaction>
+    <Transaction>2018/07/10 13:15:02.815.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP3\undatamodule.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

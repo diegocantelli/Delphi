@@ -1,0 +1,32 @@
+unit uLoginController;
+
+interface
+
+uses uLoginModel, uLoginDao, SysUtils;
+
+type
+  TLoginController = class
+    private
+      LoginDAO:TLoginDAO;
+    public
+      destructor Destroy;override;
+      function Logar(LoginModel:TLoginModel):Boolean;
+  end;
+
+implementation
+
+{ TLoginController }
+
+destructor TLoginController.Destroy;
+begin
+  FreeAndNil(LoginDAO);
+  inherited;
+end;
+
+function TLoginController.Logar(LoginModel:TLoginModel): Boolean;
+begin
+  LoginDAO := TLoginDAO.Create;
+  result := LoginDAO.Logar(LoginModel);
+end;
+
+end.

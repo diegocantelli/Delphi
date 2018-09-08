@@ -1,0 +1,23 @@
+unit uClienteController;
+
+interface
+
+uses
+  uClienteModel;
+
+type
+  TClienteController = class
+    public
+      function Inserir(oCliente:TCliente; var sErro):Boolean;
+    private
+  end;
+
+implementation
+
+function TClienteController.Inserir(oCliente: TCliente; var sErro): Boolean;
+begin
+
+
+end;
+
+end.

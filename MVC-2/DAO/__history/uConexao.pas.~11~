@@ -1,0 +1,45 @@
+unit uConexao;
+
+interface
+
+uses
+  ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
+
+type
+  TConexao = class
+    private
+      FConn: TZConnection;
+      procedure ConfigurarConexao;
+      function CriarQuery: TZQuery;
+    public
+      constructor Create;
+      destructor Destroy;override;
+  end;
+
+implementation
+
+{ TConexao }
+
+procedure TConexao.ConfigurarConexao;
+begin
+
+end;
+
+constructor TConexao.Create;
+begin
+  FConn := TConexao.Create(nil);
+end;
+
+function TConexao.CriarQuery: TZQuery;
+begin
+
+end;
+
+Destructor TConexao.Destroy;
+begin
+  inherited;
+
+end;
+
+end.

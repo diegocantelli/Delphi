@@ -1,0 +1,142 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Grids, DBGrids, ComCtrls, uPedido;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtCodigo: TEdit;
+    edtValorTotal: TEdit;
+    edtDtp: TDateTimePicker;
+    DBGrid1: TDBGrid;
+    btnInserir: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
+    Label4: TLabel;
+    edtCliente: TEdit;
+    edtPesquisa: TEdit;
+    Label5: TLabel;
+    btnPesquisa: TButton;
+    dbGridDestino: TDBGrid;
+    dsDestino: TDataSource;
+    cdsDestino: TClientDataSet;
+    procedure FormShow(Sender: TObject);
+    procedure btnInserirClick(Sender: TObject);
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure dbGridDestinoDblClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CriaCamposDataSet(DataSet:TClientDataSet);
+    procedure AtualizaGrid(Grid:TDBGrid);
+    procedure ExcluiRegistroOrigem(Grid:TDBGrid);
+    procedure MovimentaRegistro(GridOrigem :TDBGrid; CdsDestino:TClientDataSet);
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TForm1.AtualizaGrid(Grid: TDBGrid);
+begin
+  DBGrid1.Refresh;
+  DBGrid1.Repaint;
+end;
+
+procedure TForm1.btnInserirClick(Sender: TObject);
+var
+  Pedido : TPedido;
+begin
+  Pedido := TPedido.Create;
+  Pedido.Id := StrToint(edtCodigo.Text);
+  Pedido.VlrTotal := StrToCurrDef(edtValorTotal.Text,0);
+  Pedido.Data := edtDtp.Date;
+  Pedido.Cliente.RSocial := edtCliente.Text;
+
+  ClientDataSet1.Append;
+  ClientDataSet1.FieldByName('Codigo').AsInteger := Pedido.Id;
+  ClientDataSet1.FieldByName('Data').AsDateTime := Pedido.Data;
+  ClientDataSet1.FieldByName('ValorTotal').AsCurrency := Pedido.VlrTotal;
+  ClientDataSet1.FieldByName('Cliente').AsString := Pedido.Cliente.RSocial;
+  ClientDataSet1.Post;
+end;
+
+procedure TForm1.btnPesquisaClick(Sender: TObject);
+begin
+  if edtPesquisa.Text <> '' then
+  begin
+    //ClientDataSet1.Locate('Cliente', edtPesquisa.Text, [loCaseInsensitive]);
+    ClientDataSet1.Filtered := False;
+    ClientDataSet1.Filter := 'UPPER(Cliente) Like '
+      +UpperCase(QuotedStr('%' + edtPesquisa.Text + '%'));
+    ClientDataSet1.Filtered := True;
+    AtualizaGrid(DBGrid1);
+  end;
+end;
+
+procedure TForm1.CriaCamposDataSet(DataSet:TClientDataSet);
+begin
+  DataSet.Fields.Clear;
+  DataSet.FieldDefs.Add('Codigo', ftInteger);
+  DataSet.FieldDefs.Add('Data', ftDate);
+  DataSet.FieldDefs.Add('ValorTotal', ftCurrency);
+  DataSet.FieldDefs.Add('Cliente', ftString, 38);
+  DataSet.CreateDataSet;
+  DataSet.Active := True;
+end;
+ procedure TForm1.DBGrid1DblClick(Sender: TObject);
+begin
+  MovimentaRegistro(DBGrid1, CdsDestino);
+  ExcluiRegistroOrigem(DBGrid1);
+  AtualizaGrid(DBGrid1);
+end;
+
+procedure TForm1.dbGridDestinoDblClick(Sender: TObject);
+begin
+  MovimentaRegistro(dbGridDestino, ClientDataSet1);
+  ExcluiRegistroOrigem(DBGrid1);
+  AtualizaGrid(DBGrid1);
+end;
+
+procedure TForm1.ExcluiRegistroOrigem(Grid: TDBGrid);
+begin
+  Grid.DataSource.DataSet.Delete;
+end;
+
+{TODO -c:Implemetar pesquisa através de locate no client dataset}
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  CriaCamposDataSet(ClientDataSet1);
+  CriaCamposDataSet(cdsDestino);
+end;
+
+procedure TForm1.MovimentaRegistro(GridOrigem: TDBGrid;
+  CdsDestino: TClientDataSet);
+begin
+  CdsDestino.Append;
+  CdsDestino.fieldByName('Codigo').Asinteger := GridOrigem.DataSource.DataSet.FieldByName('Codigo').AsInteger;
+  CdsDestino.fieldByName('Data').AsDateTime := GridOrigem.DataSource.DataSet.FieldByName('Data').AsDateTime;
+  CdsDestino.fieldByName('ValorTotal').AsCurrency := GridOrigem.DataSource.DataSet.FieldByName('ValorTotal').AsCurrency;
+  CdsDestino.fieldByName('Cliente').AsString := GridOrigem.DataSource.DataSet.FieldByName('Cliente').AsString;
+  CdsDestino.Post;
+end;
+
+end.

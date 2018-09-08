@@ -1,0 +1,40 @@
+unit uClienteController;
+
+interface
+
+uses uClienteModel, SysUtils,ZAbstractConnection, ZConnection, DB,
+    ZAbstractRODataset,ZAbstractDataset, ZDataset;
+
+
+type
+  TClienteController = class
+    private
+     // FClienteModel:
+     FClienteModel:TClienteModel;
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function Obter:TZQuery;
+  end;
+
+implementation
+
+{ TClienteController }
+
+constructor TClienteController.Create;
+begin
+  FClienteModel := TClienteModel.create;
+end;
+
+destructor TClienteController.Destroy;
+begin
+  FreeAndNil(FClienteModel);
+  inherited;
+end;
+
+function TClienteController.Obter: TZQuery;
+begin
+  Result := FClienteModel.Obter;
+end;
+
+end.

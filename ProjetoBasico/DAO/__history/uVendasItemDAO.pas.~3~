@@ -1,0 +1,23 @@
+unit uVendasItemDAO;
+
+interface
+
+uses uVendaItemModel, Generics.Collections,uDMConexaoDAO,DB,ZAbstractRODataset,
+     ZAbstractDataset, ZDataset;
+
+type
+  TVendasItemDAO = class
+    public
+      function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+{ TVendasItemDAO }
+
+function TVendasItemDAO.RetornaListaProdutos: TObjectList<TVendaItemModel>;
+begin
+
+end;
+
+end.

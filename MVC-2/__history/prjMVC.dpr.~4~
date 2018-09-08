@@ -1,0 +1,16 @@
+program prjMVC;
+
+uses
+  Forms,
+  frmPrincipalView in 'View\frmPrincipalView.pas' {formPrincipal},
+  uConexao in 'DAO\uConexao.pas',
+  uSistemaController in 'Controller\uSistemaController.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.Run;
+end.

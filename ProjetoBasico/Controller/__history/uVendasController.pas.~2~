@@ -1,0 +1,15 @@
+unit uVendasController;
+
+interface
+
+uses uVendasDAO, uProdutosModel;
+
+type
+  TVendasController = class
+    public
+      function Gravar(ProdutosModel:TProdutosModel):Boolean;
+  end;
+
+implementation
+
+end.

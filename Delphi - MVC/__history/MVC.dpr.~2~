@@ -1,0 +1,16 @@
+program MVC;
+
+uses
+  Forms,
+  uFrmPrincipal in 'View\uFrmPrincipal.pas' {frmPrincipal},
+  uFrmCadastrarCliente in 'View\uFrmCadastrarCliente.pas' {frmCadastrarCliente};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCadastrarCliente, frmCadastrarCliente);
+  Application.Run;
+end.

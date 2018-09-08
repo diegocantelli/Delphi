@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/11 13:47:11.568.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\XML\Exe1\uFrmPrincipal.pas</Transaction>
+    <Transaction>2018/07/11 13:47:11.568.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\XML\Exe1\uFrmPrincipal.dfm</Transaction>
+    <Transaction>2018/07/11 13:48:14.941.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\XML\Exe1\ExeXML1.dproj</Transaction>
+    <Transaction>2018/07/11 13:50:41.761.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\XML\Exe1\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\XML\Exe1\Mensagem.pas</Transaction>
+  </Transactions>
+</BorlandProject>

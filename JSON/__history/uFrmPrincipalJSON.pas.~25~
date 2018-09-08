@@ -1,0 +1,85 @@
+unit uFrmPrincipalJSON;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, System.JSON;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnGerarJSON: TButton;
+    btnModificarJSON: TButton;
+    btnParseJSON: TButton;
+    Memo1: TMemo;
+    procedure btnGerarJSONClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure SetJSON(const value: string);
+    function GetJSON: string;
+  public
+    { Public declarations }
+    property Json:string read GetJSON write SetJSON;
+  end;
+
+type
+  TCarInfo = (
+    Manufacturer = 1,
+    Name = 2,
+    Currency = 3,
+    Price = 4
+  );
+
+var
+  Form1: TForm1;
+  Cars: array [1..4] of
+    array[Manufacturer .. Price] of string = (
+      ('Ferrari', '360 Modena', 'EUR', '250000'),
+      ('Ford', 'Mustang', 'USD', '80000'),
+      ('Lamborghini', 'Countach', 'EUR', '300000'),
+      ('Chevrolet', 'Corvette', 'USD', '1000')
+    );
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnGerarJSONClick(Sender: TObject);
+var
+  i:Integer;
+  JSONCars : TJSONArray;
+  Car, Price: TJSONObject;
+begin
+  JSONCars := TJSONArray.Create;
+  try
+    for I := Low(Cars) to High(Cars) do
+    begin
+      Car := TJSONObject.Create;
+      JSONCars.AddElement(Car);
+      Car.AddPair('manufacturer', Cars[i][TCarInfo.Manufacturer]);
+      Car.AddPair('name', Cars[i][TCarInfo.Name]);
+      Price := TJSONObject.Create;
+      Car.AddPair('price', Price);
+      Price.AddPair('value', TJSONNumber.Create(Cars[i][TCarInfo.Price].ToDouble));
+      Price.AddPair('currency',Cars[i][TCarInfo.Currency]);
+    end;
+    Json := JSONCars.ToString;
+  finally
+    JSONCars.Free;
+  end;
+
+end;
+
+function TForm1.GetJSON;
+begin
+  result:= Memo1.Lines.Text;
+end;
+
+procedure TForm1.SetJSON(const value:string);
+begin
+  Memo1.Lines.Text := value;
+end;
+
+end.

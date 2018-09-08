@@ -1,0 +1,35 @@
+unit uItemPedido;
+
+interface
+
+uses uCliente, uProduto;
+
+type
+  TItemPedido = class
+  private
+    FAcao: String;
+    FId: Integer;
+    FCodProduto: TProduto;
+    FValor: Currency;
+  published
+    public
+      constructor Create;
+      destructor Destroy; override;
+      property Id:Integer read FId write FId;
+      property Acao:String read FAcao write FAcao;
+      property Produto:TProduto read FCodProduto write FCodProduto;
+      property Valor:Currency read FValor write FValor;
+
+  end;
+
+implementation
+
+{ TItemPedido }
+
+
+
+{ TItemPedido }
+
+
+
+end.

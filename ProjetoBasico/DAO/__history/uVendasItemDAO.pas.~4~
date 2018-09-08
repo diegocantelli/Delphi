@@ -1,0 +1,54 @@
+unit uVendasItemDAO;
+
+interface
+
+uses uVendaItemModel, Generics.Collections,uDMConexaoDAO,DB,ZAbstractRODataset,
+     ZAbstractDataset, ZDataset;
+
+type
+  TVendasItemDAO = class
+    private
+      procedure PreencheObjeto(modelo:TVendaItemModel; Qry:TZQuery);
+    public
+      function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+{ TVendasItemDAO }
+
+procedure TVendasItemDAO.PreencheObjeto(modelo: TVendaItemModel; Qry:TZQuery);
+begin
+
+end;
+
+function TVendasItemDAO.RetornaListaProdutos: TObjectList<TVendaItemModel>;
+var
+  Qry:TZQuery;
+  VendasItemModel:TVendaItemModel;
+  ListaItens:TObjectList<TObject>;
+begin
+  Qry:=DMConexao.CriaQuery;
+
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' select * from produtos ');
+  Qry.Open;
+
+  if Not(Qry.IsEmpty) then
+  begin
+    //cria objeto itensVendaModel
+    VendasItemModel := TVendaItemModel.Create;
+    //cria lista
+    ListaItens := TObjectList<TObject>.Create;
+    Qry.First;
+    while not(Qry.eof) do
+    begin
+
+      //preenche objeto itensvendamodel
+    end;
+  end;
+  //retorna lista
+end;
+
+end.

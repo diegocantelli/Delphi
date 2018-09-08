@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/04/12 13:27:55.154.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\View\uFrmPrincipal.pas</Transaction>
+    <Transaction>2018/04/12 13:27:55.154.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\View\uFrmPrincipal.dfm</Transaction>
+    <Transaction>2018/04/12 13:28:19.651.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\MVC.dproj</Transaction>
+    <Transaction>2018/04/12 13:31:16.011.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\View\uFrmCadastrarCliente.pas</Transaction>
+    <Transaction>2018/04/12 13:31:16.011.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\View\uFrmCadastrarCliente.dfm</Transaction>
+    <Transaction>2018/04/13 13:28:14.571.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Model\uClienteModel.pas</Transaction>
+    <Transaction>2018/04/13 13:39:33.473.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Controller\uClienteController.pas</Transaction>
+    <Transaction>2018/04/13 13:46:47.490.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\DAO\uDmConexao.pas</Transaction>
+    <Transaction>2018/04/13 13:46:47.490.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\DAO\uDmConexao.dfm</Transaction>
+    <Transaction>2018/04/13 13:54:06.083.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\DAO\uDmCliente.pas</Transaction>
+    <Transaction>2018/04/13 13:54:06.083.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\Delphi - MVC\DAO\uDmCliente.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

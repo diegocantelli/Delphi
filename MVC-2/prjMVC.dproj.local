@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/04/23 13:14:43.460.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipal.pas</Transaction>
+    <Transaction>2018/04/23 13:14:43.470.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipal.dfm</Transaction>
+    <Transaction>2018/04/23 13:14:53.821.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\prjMVC.dproj</Transaction>
+    <Transaction>2018/04/23 13:16:34.715.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipal.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipalView.pas</Transaction>
+    <Transaction>2018/04/23 13:16:34.715.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipal.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmPrincipalView.dfm</Transaction>
+    <Transaction>2018/04/23 13:17:35.999.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\DAO\uConexao.pas</Transaction>
+    <Transaction>2018/04/23 13:50:51.935.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Controller\uSistemaController.pas</Transaction>
+    <Transaction>2018/04/24 13:01:11.389.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\DAO\uEmpresaModel.pas</Transaction>
+    <Transaction>2018/04/24 13:08:47.121.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\DAO\uEmpresaDAO.pas</Transaction>
+    <Transaction>2018/04/26 13:06:58.398.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Model\uEnumerado.pas</Transaction>
+    <Transaction>2018/04/26 13:08:50.701.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Model\uClienteModel.pas</Transaction>
+    <Transaction>2018/04/26 13:19:05.084.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmCliente.pas</Transaction>
+    <Transaction>2018/04/26 13:19:05.084.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\View\frmCliente.dfm</Transaction>
+    <Transaction>2018/04/26 13:29:29.612.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\DAO\uClienteDAO.pas</Transaction>
+    <Transaction>2018/04/26 13:39:26.822.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Controller\uClienteController.pas</Transaction>
+    <Transaction>2018/04/26 13:54:35.652.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Model\uClienteModel.pas=</Transaction>
+    <Transaction>2018/04/26 13:55:48.886.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MVC-2\Model\uClienteModel.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/06 13:35:02.783.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Cliente\uTprincipal.pas</Transaction>
+    <Transaction>2018/07/06 13:35:02.783.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Cliente\uTprincipal.dfm</Transaction>
+    <Transaction>2018/07/06 13:35:18.108.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Cliente\Cliente.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,75 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 235
+  ClientWidth = 445
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 445
+    Height = 49
+    Align = alTop
+    Caption = 'Panel1'
+    TabOrder = 0
+    ExplicitWidth = 447
+    object btnGerarJSON: TButton
+      Left = 0
+      Top = 0
+      Width = 146
+      Height = 49
+      Caption = 'Gerar JSON'
+      TabOrder = 0
+    end
+    object btnModificarJSON: TButton
+      Left = 145
+      Top = 0
+      Width = 153
+      Height = 49
+      Caption = 'Modificar JSON'
+      TabOrder = 1
+    end
+    object btnParseJSON: TButton
+      Left = 296
+      Top = 0
+      Width = 149
+      Height = 49
+      Caption = 'Parse JSON'
+      TabOrder = 2
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 49
+    Width = 445
+    Height = 186
+    Align = alClient
+    Caption = 'Panel1'
+    TabOrder = 1
+    ExplicitTop = 25
+    ExplicitHeight = 39
+    object Memo1: TMemo
+      Left = 1
+      Top = 1
+      Width = 443
+      Height = 184
+      Align = alClient
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 0
+      ExplicitLeft = 105
+      ExplicitTop = 0
+      ExplicitWidth = 185
+      ExplicitHeight = 89
+    end
+  end
+end

@@ -1,0 +1,13 @@
+unit uClienteModel;
+
+interface
+
+type
+  TClienteModel = class
+    private
+    public
+  end;
+
+implementation
+
+end.

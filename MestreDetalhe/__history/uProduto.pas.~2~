@@ -1,0 +1,12 @@
+unit uProduto;
+
+interface
+
+type
+  TProduto = class
+
+  end;
+
+implementation
+
+end.

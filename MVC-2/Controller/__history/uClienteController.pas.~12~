@@ -1,0 +1,26 @@
+unit uClienteController;
+
+interface
+
+uses uClienteModel;
+
+
+type
+  TClienteController = class
+    private
+     // FClienteModel:
+    // FCliente:TCliente;
+    public
+      constructor Create;
+  end;
+
+implementation
+
+{ TClienteController }
+
+constructor TClienteController.Create;
+begin
+  // FClienteModel := TClienteModel.create;
+end;
+
+end.

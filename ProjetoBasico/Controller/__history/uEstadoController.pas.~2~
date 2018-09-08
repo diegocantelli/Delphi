@@ -1,0 +1,13 @@
+unit uEstadoController;
+
+interface
+
+type
+  TEstadoController = class
+    public
+      function GetQueryEstados:string;
+  end;
+
+implementation
+
+end.

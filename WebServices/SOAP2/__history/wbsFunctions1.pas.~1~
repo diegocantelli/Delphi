@@ -1,0 +1,31 @@
+Unit wbsFunctions1;
+
+interface
+
+uses SysUtils, Classes, InvokeRegistry, Midas, SOAPMidas, SOAPDm;
+
+type
+  IwbsFunctions = interface(IAppServerSOAP)
+    ['{8FFE7E80-F725-4804-8AA1-7BFAD06B491E}']
+  end;
+
+  TwbsFunctions = class(TSoapDataModule, IwbsFunctions, IAppServerSOAP, IAppServer)
+  private
+  
+  public
+  
+  end;
+
+implementation
+
+{$R *.DFM}
+
+procedure TwbsFunctionsCreateInstance(out obj: TObject);
+begin
+ obj := TwbsFunctions.Create(nil);
+end;
+
+initialization
+   InvRegistry.RegisterInvokableClass(TwbsFunctions, TwbsFunctionsCreateInstance);
+   InvRegistry.RegisterInterface(TypeInfo(IwbsFunctions));
+end.

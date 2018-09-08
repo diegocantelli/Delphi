@@ -1,0 +1,38 @@
+unit uItemPedido;
+
+interface
+
+uses uCliente;
+
+type
+  TItemPedido = class
+  private
+    FVlrTotal: Currency;
+    FCliente: TCliente;
+    FId: Integer;
+    FData: TDateTime;
+  published
+    public
+      constructor Create;
+      destructor Destroy;
+      property Id:Integer read FId write FId;
+      property CLiente:TCliente read FCliente write FCliente;
+      property Data:TDateTime read FData write FData;
+      property VlrTotal:Currency read FVlrTotal write FVlrTotal;
+  end;
+
+implementation
+
+{ TItemPedido }
+
+constructor TItemPedido.Create;
+begin
+  FCliente := TCliente.Create;
+end;
+
+destructor TItemPedido.Destroy;
+begin
+  FCliente.Free;
+end;
+
+end.

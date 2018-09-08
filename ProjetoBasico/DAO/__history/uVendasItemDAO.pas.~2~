@@ -1,0 +1,14 @@
+unit uVendasItemDAO;
+
+interface
+
+uses uVendaItemModel, Generics.Collections;
+
+type
+  TVendasItemDAO = class
+    function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+end.

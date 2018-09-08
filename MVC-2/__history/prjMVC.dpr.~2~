@@ -1,0 +1,14 @@
+program prjMVC;
+
+uses
+  Forms,
+  frmPrincipalView in 'View\frmPrincipalView.pas' {formPrincipal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.Run;
+end.

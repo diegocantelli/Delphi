@@ -1,0 +1,14 @@
+unit uEmpresaModel;
+
+interface
+
+type
+  TEmpresa = class
+    private
+    public
+      property Codigo: Integer;
+      property RSocial:string;
+  end;
+implementation
+
+end.

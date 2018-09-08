@@ -1,0 +1,15 @@
+unit uPessoa;
+
+interface
+
+type
+  TPessoa = class
+
+  public
+    property Pessoa:string read FPessoa write FPessoa;
+    property Codigo:Integer read FCodigo write FCodigo;
+  end;
+
+implementation
+
+end.

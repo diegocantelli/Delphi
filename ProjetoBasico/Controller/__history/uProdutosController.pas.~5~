@@ -1,0 +1,37 @@
+unit uProdutosController;
+
+interface
+
+uses uProdutosModel, uProdutosDAO;
+
+type
+  TProdutosController = class
+    private
+      FProdutosDAO:TProdutosDAO;
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function Inserir(modelo:TProdutosModel):Boolean;
+  end;
+
+implementation
+
+{ TProdutosController }
+
+constructor TProdutosController.Create;
+begin
+
+end;
+
+destructor TProdutosController.Destroy;
+begin
+
+  inherited;
+end;
+
+function TProdutosController.Inserir(modelo: TProdutosModel): Boolean;
+begin
+  result:=
+end;
+
+end.

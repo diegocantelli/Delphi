@@ -1,0 +1,45 @@
+unit uVendaModel;
+
+interface
+
+uses uClienteModel, Generics.Collections, uVendaItemModel, uProdutosController;
+
+type
+  TVendasModel = class
+  private
+    FDataFaturado:TDate;
+    FDataVenda: TDate ;
+    FCliente: TClienteModel;
+    FId: integer;
+    FProdutosController:TProdutosController;
+  published
+  public
+    property Id:integer read FId write FId;
+    property Cliente:TClienteModel read FCliente write FCliente;
+    property DataVenda:TDate read FDataVenda write FDataVenda;
+    property DataFaturado:TDate read FDataFaturado write FDataFaturado;
+    property ProdutosController:TProdutosController read FProdutosController write FProdutosController;
+    constructor Create;
+    destructor Destroy;override;
+  end;
+
+
+
+implementation
+
+{ TVendasModel }
+
+constructor TVendasModel.Create;
+begin
+  VendaItens := TVendaItemModel.Create;
+  FCliente := FCliente.Create;
+end;
+
+destructor TVendasModel.Destroy;
+begin
+  FCliente.Free;
+  VendaItens.Free;
+  inherited;
+end;
+
+end.

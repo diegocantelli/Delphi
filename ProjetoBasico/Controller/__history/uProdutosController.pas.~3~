@@ -1,0 +1,24 @@
+unit uProdutosController;
+
+interface
+
+uses uProdutosModel;
+
+type
+  TProdutosController = class
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function Inserir(modelo:TProdutosModel):Boolean;
+  end;
+
+implementation
+
+{ TProdutosController }
+
+function TProdutosController.Inserir(modelo: TProdutosModel): Boolean;
+begin
+  result:=
+end;
+
+end.

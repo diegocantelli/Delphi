@@ -1,0 +1,109 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 412
+  ClientWidth = 446
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Align = Bottom
+    Position.Y = 386.000000000000000000
+    Size.Width = 446.000000000000000000
+    Size.Height = 26.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Consultar'
+    OnClick = Button1Click
+  end
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 446.000000000000000000
+    Size.Height = 81.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 9
+    object txtEnderecos: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Text = 'Enderecos'
+      TabOrder = 3
+    end
+    object Label1: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 32.000000000000000000
+      Text = 'Origem'
+      TabOrder = 2
+    end
+    object Label2: TLabel
+      Position.X = 248.000000000000000000
+      Position.Y = 32.000000000000000000
+      Text = 'Destino'
+      TabOrder = 1
+    end
+    object txtEndOrigem: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 11
+      Position.X = 8.000000000000000000
+      Position.Y = 51.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object txtEndDestino: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 10
+      Position.X = 248.000000000000000000
+      Position.Y = 51.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Memo1: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      Align = Scale
+      Position.Y = 80.000000000000000000
+      Size.Width = 446.000000000000000000
+      Size.Height = 305.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 12
+      Viewport.Width = 442.000000000000000000
+      Viewport.Height = 301.000000000000000000
+    end
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'UTF-8, *;q=0.8'
+    BaseURL = 'https://maps.googleapis.com/maps/api/distancematrix'
+    Params = <>
+    HandleRedirects = True
+    Left = 64
+    Top = 120
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        Kind = pkURLSEGMENT
+        name = 'origem'
+        Options = [poAutoCreated]
+      end
+      item
+        Kind = pkURLSEGMENT
+        name = 'destino'
+        Options = [poAutoCreated]
+      end>
+    Resource = 'json?units=imperial&origins={origem}&destinations={destino}'
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 160
+    Top = 112
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 112
+    Top = 136
+  end
+end

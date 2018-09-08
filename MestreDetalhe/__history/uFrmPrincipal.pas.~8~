@@ -1,0 +1,55 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, DBClient, StdCtrls, Grids, DBGrids, ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtCodigo: TEdit;
+    edtValorTotal: TEdit;
+    dtp: TDateTimePicker;
+    DBGrid1: TDBGrid;
+    btnIncluir: TButton;
+    btnAlterar: TButton;
+    btnExcluir: TButton;
+    CD: TClientDataSet;
+    DS: TDataSource;
+    CDCodigo: TIntegerField;
+    CDData: TDateField;
+    CDValorTotal: TCurrencyField;
+    procedure btnIncluirClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure PreencheDataset;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnIncluirClick(Sender: TObject);
+begin
+  PreencheDataset;
+end;
+
+procedure TForm1.PreencheDataset;
+begin
+  CD.Append;
+  CD.FieldByName('Codigo').AsInteger := StrToInt(edtCodigo.Text);
+  CD.FieldByName('Data').AsDateTime := StrToDateTime(dtp.Text);
+  CD.FieldByName('ValorTotal').AsCurrency := StrToFloat(edtCodigo.Text);
+  CD.Post;
+end;
+
+end.

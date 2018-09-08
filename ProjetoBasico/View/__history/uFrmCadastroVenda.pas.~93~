@@ -1,0 +1,231 @@
+unit uFrmCadastroVenda;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uFrmCadastroPai, DB, StdCtrls, ExtCtrls, DBCtrls, uClienteController,
+  Generics.Collections, uClienteModel, Grids, uVendaItemModel, uVendaModel,
+  uVendaItemController, uProdutosController, uProdutosModel, uVendasController,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset, frxClass, frxDBSet;
+
+type
+  TfrmCadastroVendas = class(TfrmCadastroPai)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label5: TLabel;
+    txtCodigo: TEdit;
+    txtDataVenda: TEdit;
+    txtDataFaturado: TEdit;
+    chkFaturado: TCheckBox;
+    cmbClientes: TComboBox;
+    Panel2: TPanel;
+    CmbItens: TComboBox;
+    txtQtd: TEdit;
+    txtValorUnitario: TEdit;
+    txtDesconto: TEdit;
+    txtSubTotal: TEdit;
+    StrGridVendasItens: TStringGrid;
+    Label4: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    txtTotal: TEdit;
+    Label11: TLabel;
+    btnAddItem: TButton;
+    frVenda: TfrxReport;
+    frxDadosVenda: TfrxDBDataset;
+    qryItens: TZQuery;
+    frxItensVenda: TfrxDBDataset;
+    qryVendas: TZQuery;
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnAddItemClick(Sender: TObject);
+    procedure btnGravarClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CarregaComboCliente;
+    procedure PreencheComboCliente(ListaClientes:TObjectList<TClienteModel>);
+    procedure ConfirguraGrid;
+    procedure ZeraIndiceGrid;
+    procedure IncrementaIndiceLinhaGrid;
+    procedure AdicionaItemGrid;
+    procedure CarregaComboProdutos;
+    procedure CriarVenda;
+    procedure PreencheObjetoVenda(VendaModel:TVendasModel);
+    procedure PreencheObjetoProduto(ListaDeProdutos:TObjectList<TProdutosModel>);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroVendas: TfrmCadastroVendas;
+  indiceLinhaItemGrid: Integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroVendas.AdicionaItemGrid;
+begin
+  StrGridVendasItens.Cells[0,indiceLinhaItemGrid] := IntToStr(Integer(CmbItens.Items.Objects[CmbItens.ItemIndex]));
+  StrGridVendasItens.Cells[1,indiceLinhaItemGrid] := CmbItens.Text;
+  StrGridVendasItens.Cells[2,indiceLinhaItemGrid] := txtQtd.Text;
+  StrGridVendasItens.Cells[3,indiceLinhaItemGrid] := txtValorUnitario.Text;
+  StrGridVendasItens.Cells[4,indiceLinhaItemGrid] := txtDesconto.Text;
+  StrGridVendasItens.Cells[5,indiceLinhaItemGrid] := txtSubTotal.Text;
+  StrGridVendasItens.Cells[6,indiceLinhaItemGrid] := txtTotal.Text;
+  IncrementaIndiceLinhaGrid;
+end;
+
+procedure TfrmCadastroVendas.btnAddItemClick(Sender: TObject);
+begin
+  inherited;
+  AdicionaItemGrid;
+end;
+
+procedure TfrmCadastroVendas.btnGravarClick(Sender: TObject);
+begin
+  inherited;
+  CriarVenda;
+  {todo -c: verificar baixa de estoque}
+end;
+
+procedure TfrmCadastroVendas.CarregaComboCliente;
+var
+  ListaClientes:TObjectList<TClienteModel>;
+  ClienteController : TClienteController;
+begin
+  ClienteController := TClienteController.Create;
+  ListaClientes := ClienteController.RetornaClientes;
+  PreencheComboCliente(ListaClientes);
+  ListaClientes.Free;
+  ClienteController.Free;
+end;
+
+procedure TfrmCadastroVendas.CarregaComboProdutos;
+var
+  ListaProdutos        : TObjectList<TProdutosModel>;
+  ProdutoModel         : TProdutosModel;
+  ProdutosController   : TProdutosController;
+begin
+  ProdutosController := TProdutosController.Create;
+  ListaProdutos := ProdutosController.RetornaListaProdutos;
+  for ProdutoModel in ListaProdutos do
+  begin
+    CmbItens.Items.AddObject(ProdutoModel.Descricao, TObject(ProdutoModel.Id));
+  end;
+  ListaProdutos.Free;
+  ProdutosController.Free;
+end;
+
+procedure TfrmCadastroVendas.ConfirguraGrid;
+begin
+  StrGridVendasItens.Cells[0,0] := 'Código';
+  StrGridVendasItens.Cells[1,0] := 'Item';
+  StrGridVendasItens.Cells[2,0] := 'Qtd';
+  StrGridVendasItens.Cells[3,0] := 'Valor. Unit.';
+  StrGridVendasItens.Cells[4,0] := 'Desconto';
+  StrGridVendasItens.Cells[5,0] := 'Sub total';
+  StrGridVendasItens.Cells[6,0] := 'Total';
+end;
+
+procedure TfrmCadastroVendas.CriarVenda;
+var
+  VendasModel:TVendasModel;
+  ProdutoModel:TProdutosModel;
+  VendasController: TVendasController;
+begin
+  VendasModel  := TVendasModel.Create;
+  ProdutoModel := TProdutosModel.Create;
+  VendasController := TVendasController.Create;
+  try
+    PreencheObjetoVenda(VendasModel);
+    PreencheObjetoProduto(VendasModel.ListaDeProdutos);
+
+    if VendasController.Gravar(VendasModel) then
+      ShowMessage('Venda cadastrada com sucesso')
+    else
+      ShowMessage('Erro ao criar venda !');
+
+  finally
+    VendasController.Free;
+    ProdutoModel.Free;
+    VendasModel.Free;
+  end;
+end;
+
+procedure TfrmCadastroVendas.FormCreate(Sender: TObject);
+begin
+  inherited;
+  ZeraIndiceGrid;
+end;
+
+procedure TfrmCadastroVendas.FormShow(Sender: TObject);
+begin
+  inherited;
+  CarregaComboCliente;
+  CarregaComboProdutos;
+  ConfirguraGrid;
+end;
+
+procedure TfrmCadastroVendas.IncrementaIndiceLinhaGrid;
+begin
+  Inc(indiceLinhaItemGrid);
+end;
+
+procedure TfrmCadastroVendas.PreencheComboCliente(
+  ListaClientes: TObjectList<TClienteModel>);
+var
+  ClienteModel:TClienteModel;
+begin
+  for ClienteModel in ListaClientes do
+  begin
+    cmbClientes.Items.AddObject(ClienteModel.Nome, TObject(ClienteModel.Id));
+  end;
+end;
+
+
+procedure TfrmCadastroVendas.PreencheObjetoProduto(
+          ListaDeProdutos:TObjectList<TProdutosModel>);
+var
+  ProdutoModel: TProdutosModel;
+begin
+  ZeraIndiceGrid;
+  while(True)do
+  begin
+    if (StrToIntDef(StrGridVendasItens.Cells[0,indiceLinhaItemGrid],0)> 0) then
+    begin
+      ProdutoModel := TProdutosModel.Create;
+      ProdutoModel.Id         := StrToInt(StrGridVendasItens.Cells[0,indiceLinhaItemGrid]);
+      ProdutoModel.Descricao  := StrGridVendasItens.Cells[1,indiceLinhaItemGrid];
+      ProdutoModel.Qtd        := StrToFloat(StrGridVendasItens.Cells[2,indiceLinhaItemGrid]);
+      ProdutoModel.Custo      := StrToFloat(StrGridVendasItens.Cells[3,indiceLinhaItemGrid]);
+      ProdutoModel.Desconto   := StrToFloat(StrGridVendasItens.Cells[4,indiceLinhaItemGrid]);
+      ListaDeProdutos.Add(ProdutoModel);
+      IncrementaIndiceLinhaGrid;
+    end
+    else
+      Break;
+  end;
+end;
+
+procedure TfrmCadastroVendas.PreencheObjetoVenda(VendaModel: TVendasModel);
+begin
+  VendaModel.Id           := 0;
+  VendaModel.Cliente.Id   := Integer(cmbClientes.Items.Objects[cmbClientes.ItemIndex]);
+  VendaModel.DataVenda    := StrToDate(txtDataVenda.Text);
+  VendaModel.DataFaturado := StrToDate(txtDataFaturado.Text);
+  VendaModel.Faturado     := chkFaturado.Checked;   
+end;
+
+procedure TfrmCadastroVendas.ZeraIndiceGrid;
+begin
+  indiceLinhaItemGrid := 1;
+end;
+
+end.

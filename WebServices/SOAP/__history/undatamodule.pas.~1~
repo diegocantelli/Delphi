@@ -1,0 +1,31 @@
+Unit undatamodule;
+
+interface
+
+uses SysUtils, Classes, InvokeRegistry, Midas, SOAPMidas, SOAPDm;
+
+type
+  IIServer = interface(IAppServerSOAP)
+    ['{DBF166DF-CDD4-4960-AC76-0E722287C9F8}']
+  end;
+
+  TIServer = class(TSoapDataModule, IIServer, IAppServerSOAP, IAppServer)
+  private
+  
+  public
+  
+  end;
+
+implementation
+
+{$R *.DFM}
+
+procedure TIServerCreateInstance(out obj: TObject);
+begin
+ obj := TIServer.Create(nil);
+end;
+
+initialization
+   InvRegistry.RegisterInvokableClass(TIServer, TIServerCreateInstance);
+   InvRegistry.RegisterInterface(TypeInfo(IIServer));
+end.

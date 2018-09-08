@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/28 16:49:45.000.230,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/15 13:17:14.000.865,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/15 13:23:45.000.383,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON\uFrmPrincipalJSON.pas</Transaction>
+    <Transaction>2018/08/15 13:23:45.000.383,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON\uFrmPrincipalJSON.dfm</Transaction>
+    <Transaction>2018/08/15 13:23:59.000.523,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON\JsonProject.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

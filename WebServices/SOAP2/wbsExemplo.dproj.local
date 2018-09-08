@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/05 13:27:46.560.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\wbExemploIntf.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\wbExemploIntf.pas</Transaction>
+    <Transaction>2018/07/05 13:28:00.023.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\wbExemploImpl.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\wbExemploImpl.pas</Transaction>
+    <Transaction>2018/07/05 13:28:17.027.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\Web.pas</Transaction>
+    <Transaction>2018/07/05 13:28:17.027.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\Web.dfm</Transaction>
+    <Transaction>2018/07/05 13:28:23.106.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\wbsExemplo.dproj</Transaction>
+    <Transaction>2018/07/05 13:37:10.291.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\wbsFunctions1.pas</Transaction>
+    <Transaction>2018/07/05 13:37:10.291.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP2\wbsFunctions1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

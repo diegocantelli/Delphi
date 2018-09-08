@@ -1,0 +1,12 @@
+unit uFuncoes;
+
+interface
+
+type
+  TFuncoes = class
+    function TestarPermissao(nomeForm:string):Boolean;
+  end;
+
+implementation
+
+end.

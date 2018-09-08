@@ -1,0 +1,24 @@
+unit uFrmCadastroEstados;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uFrmCadastroPai, DB, StdCtrls, ExtCtrls;
+
+type
+  TfrmCadastroPai1 = class(TfrmCadastroPai)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroPai1: TfrmCadastroPai1;
+
+implementation
+
+{$R *.dfm}
+
+end.

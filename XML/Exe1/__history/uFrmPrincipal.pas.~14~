@@ -1,0 +1,97 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, xmldom, XMLIntf, StdCtrls, Buttons, msxmldom, XMLDoc, ExtCtrls, Mensagem;
+
+type
+  TForm1 = class(TForm)
+    edtPara: TLabeledEdit;
+    EdtDe: TLabeledEdit;
+    EdtCorpo: TLabeledEdit;
+    EdtCabecalho: TLabeledEdit;
+    OpenDialog1: TOpenDialog;
+    XMLDocument1: TXMLDocument;
+    lstBxDados: TListBox;
+    btnCarregaXml: TBitBtn;
+    edtDataMsg: TEdit;
+    Label1: TLabel;
+    procedure btnCarregaXmlClick(Sender: TObject);
+    procedure lstBxDadosDblClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure LoadXML;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TForm1.btnCarregaXmlClick(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+  begin
+    XMLDocument1.FileName := OpenDialog1.FileName;
+    XMLDocument1.Active := True;
+    LoadXML;
+  end;
+
+end;
+
+procedure TForm1.LoadXML;
+var
+  tempMensagem:TMensagem;
+  I, ISubNode:Integer;
+begin
+  lstBxDados.Clear;
+  for I := 0 to XMLDocument1.DocumentElement.ChildNodes.Count -1 do
+  begin
+    tempMensagem := TMensagem.Create;
+    with tempMensagem, XMLDocument1,
+         XMLDocument1.DocumentElement.ChildNodes[I] do
+    begin
+      Para      := ChildNodes['PARA'].Text;
+      De        := ChildNodes['DE'].Text;
+      Cabecalho := ChildNodes['CABECALHO'].Text;
+      Corpo     := ChildNodes['CORPO'].Text;
+      lstBxDados.Items.AddObject('Para: '+Para, tempMensagem);
+
+      for ISubNode := 0 to XMLDocument1.DocumentElement.ChildNodes[I].ChildNodes.Count - 1 do
+      begin
+        with XMLDocument1.DocumentElement.ChildNodes[I].ChildNodes[ISubNode] do
+        begin
+          Ano := ChildNodes['ANO'].Text;
+          Mes := ChildNodes['MES'].Text;
+          Dia := ChildNodes['DIA'].Text;
+        end;
+      end;
+    end;
+  end;
+
+end;
+
+procedure TForm1.lstBxDadosDblClick(Sender: TObject);
+begin
+  if(Assigned(TMensagem(lstBxDados.Items.Objects[lstBxDados.ItemIndex]))) then
+  begin
+    with TMensagem(lstBxDados.Items.Objects[lstBxDados.ItemIndex]) do
+    begin
+      edtPara.Text      := Para;
+      EdtDe.Text        := De;
+      EdtCorpo.Text     := Corpo;
+      EdtCabecalho.Text := Cabecalho;
+      edtDataMsg.Text := Dia + '/' + Mes+ '/'+Ano;
+    end;
+  end;
+end;
+
+end.

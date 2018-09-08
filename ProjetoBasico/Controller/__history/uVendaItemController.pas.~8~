@@ -1,0 +1,36 @@
+unit uVendaItemController;
+
+interface
+
+uses uVendaItemModel, Generics.Collections, uVendasItemDAO;
+
+type
+  TVendaItemController = class
+    private
+      FVendaItemModel:TVendasItemDAO;
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+{ TVendaItemController }
+
+constructor TVendaItemController.Create;
+begin
+  FVendaItemModel := FVendaItemModel.Create;
+end;
+
+destructor TVendaItemController.Destroy;
+begin
+  FVendaItemModel.Free;
+end;
+
+function TVendaItemController.RetornaListaProdutos: TObjectList<TVendaItemModel>;
+begin
+  result:=  FVendaItemModel.
+end;
+
+end.

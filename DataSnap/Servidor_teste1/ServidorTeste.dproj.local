@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/05/04 13:27:31.368.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\DataSnap\Servidor_teste1\uService.pas</Transaction>
+    <Transaction>2018/05/04 13:27:31.373.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\DataSnap\Servidor_teste1\uService.dfm</Transaction>
+    <Transaction>2018/05/04 13:28:33.788.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\DataSnap\Servidor_teste1\ServidorTeste.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

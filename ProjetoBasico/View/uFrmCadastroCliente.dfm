@@ -1,0 +1,235 @@
+inherited frmCadastroCliente: TfrmCadastroCliente
+  Caption = 'Cadastro de clientes'
+  OnShow = FormShow
+  ExplicitWidth = 616
+  ExplicitHeight = 339
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 439
+    Top = 104
+    Width = 34
+    Height = 13
+    Caption = 'Tipo PJ'
+  end
+  object Label2: TLabel [1]
+    Left = 439
+    Top = 145
+    Width = 37
+    Height = 13
+    Caption = 'Estado:'
+  end
+  object Label3: TLabel [2]
+    Left = 492
+    Top = 146
+    Width = 37
+    Height = 13
+    Caption = 'Cidade:'
+  end
+  object txtCPFCNPJ: TLabeledEdit [3]
+    Left = 439
+    Top = 24
+    Width = 153
+    Height = 21
+    EditLabel.Width = 48
+    EditLabel.Height = 13
+    EditLabel.Caption = 'CPF/CNPJ'
+    TabOrder = 4
+  end
+  object cmbTipoPessoa: TComboBox [4]
+    Left = 438
+    Top = 120
+    Width = 154
+    Height = 21
+    TabOrder = 12
+    Text = 'Selecione o tipo de pessoa'
+    Items.Strings = (
+      'F'#237'sica'
+      'Jur'#237'dica')
+  end
+  object txtFantasia: TLabeledEdit [5]
+    Left = 287
+    Top = 24
+    Width = 137
+    Height = 21
+    EditLabel.Width = 41
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Fantasia'
+    TabOrder = 3
+  end
+  object DBLKCBCidade: TDBLookupComboBox [6]
+    Left = 489
+    Top = 160
+    Width = 103
+    Height = 21
+    KeyField = 'id_cidade'
+    ListField = 'nome'
+    ListFieldIndex = 1
+    ListSource = DSCidades
+    TabOrder = 14
+  end
+  object txtNome: TLabeledEdit [7]
+    Left = 72
+    Top = 72
+    Width = 193
+    Height = 21
+    EditLabel.Width = 27
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Nome'
+    TabOrder = 5
+  end
+  object txtEmail: TLabeledEdit [8]
+    Left = 287
+    Top = 72
+    Width = 137
+    Height = 21
+    EditLabel.Width = 24
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Email'
+    TabOrder = 6
+  end
+  object txtSite: TLabeledEdit [9]
+    Left = 439
+    Top = 72
+    Width = 153
+    Height = 21
+    EditLabel.Width = 18
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Site'
+    TabOrder = 7
+  end
+  object DBLkCBEstados: TDBLookupComboBox [10]
+    Left = 438
+    Top = 160
+    Width = 38
+    Height = 21
+    KeyField = 'id_estado'
+    ListField = 'sigla'
+    ListFieldIndex = 1
+    ListSource = DSEstados
+    TabOrder = 13
+  end
+  object txtIE: TLabeledEdit [11]
+    Left = 287
+    Top = 160
+    Width = 139
+    Height = 21
+    EditLabel.Width = 10
+    EditLabel.Height = 13
+    EditLabel.Caption = 'IE'
+    TabOrder = 10
+  end
+  object txtIM: TLabeledEdit [12]
+    Left = 72
+    Top = 160
+    Width = 121
+    Height = 21
+    EditLabel.Width = 12
+    EditLabel.Height = 13
+    EditLabel.Caption = 'IM'
+    TabOrder = 11
+  end
+  object txtBairro: TLabeledEdit [13]
+    Left = 287
+    Top = 120
+    Width = 137
+    Height = 21
+    EditLabel.Width = 28
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Bairro'
+    TabOrder = 9
+  end
+  object txtRazSoc: TLabeledEdit [14]
+    Left = 72
+    Top = 24
+    Width = 193
+    Height = 21
+    EditLabel.Width = 59
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Razao social'
+    TabOrder = 2
+  end
+  object txtEndereco: TLabeledEdit [15]
+    Left = 72
+    Top = 120
+    Width = 193
+    Height = 21
+    EditLabel.Width = 45
+    EditLabel.Height = 13
+    EditLabel.Caption = 'Endere'#231'o'
+    TabOrder = 8
+  end
+  object txtId: TLabeledEdit [16]
+    Left = 8
+    Top = 24
+    Width = 41
+    Height = 21
+    EditLabel.Width = 11
+    EditLabel.Height = 13
+    EditLabel.Caption = 'ID'
+    TabOrder = 1
+  end
+  inherited pnlOperacaoes: TPanel
+    ExplicitLeft = 0
+    ExplicitTop = 259
+    ExplicitWidth = 600
+    inherited btnNovo: TButton
+      Caption = 'Inserir'
+      OnClick = btnNovoClick
+    end
+    inherited btnGravar: TButton
+      Left = 417
+      OnClick = btnGravarClick
+      ExplicitLeft = 417
+    end
+    inherited btnCancelar: TButton
+      Left = 97
+      OnClick = btnCancelarClick
+      ExplicitLeft = 97
+    end
+    inherited btnExcluir: TButton
+      Left = 178
+      OnClick = btnExcluirClick
+      ExplicitLeft = 178
+    end
+    object btnAlterar: TButton
+      Left = 259
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Alterar'
+      TabOrder = 5
+      OnClick = btnAlterarClick
+    end
+  end
+  inherited DataSource1: TDataSource
+    Left = 375
+    Top = 65528
+  end
+  object QryEstados: TZQuery
+    Connection = DMConexao.DMConexao
+    SQL.Strings = (
+      'select * from estado')
+    Params = <>
+    Left = 16
+    Top = 56
+  end
+  object DSEstados: TDataSource
+    DataSet = QryEstados
+    Left = 16
+    Top = 104
+  end
+  object DSCidades: TDataSource
+    DataSet = QryCidades
+    Left = 16
+    Top = 208
+  end
+  object QryCidades: TZQuery
+    Connection = DMConexao.DMConexao
+    SQL.Strings = (
+      'select * from cidade')
+    Params = <>
+    Left = 16
+    Top = 160
+  end
+end

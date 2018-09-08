@@ -1,0 +1,16 @@
+unit uPedido;
+
+interface
+
+type
+  TPedido = class
+    public
+      property Acao:string read FAcao write FAcao;
+      property FValor:Currency read FValor write FValor;
+      property Codigo:Integer read FCodigo write FCodigo;
+      property CodProduto:Integer read FCodProduto write FCodProduto;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,29 @@
+unit uLoginController;
+
+interface
+
+uses uLoginModel, uLoginDao;
+
+type
+  TLoginController = class
+    public
+      function Logar(LoginModel:TLoginModel):Boolean;
+  end;
+
+implementation
+
+{ TLoginController }
+
+function TLoginController.Logar(LoginModel:TLoginModel): Boolean;
+var
+  LoginDAO:TLoginDAO;
+begin
+  LoginDAO := TLoginDAO.Create;
+  try
+    result := LoginDAO.Logar(LoginModel);
+  finally
+    LoginDAO.Free;
+  end;
+end;
+
+end.

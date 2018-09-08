@@ -1,0 +1,34 @@
+unit uFrmFiltroProdutos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, ExtCtrls, uDMConexaoDAO, DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+
+type
+  TfrmFiltroProdutos = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    txtCodigo: TEdit;
+    txtDescricao: TEdit;
+    btnPesquisar: TButton;
+    GridProdutos: TDBGrid;
+    QryProdutos: TZQuery;
+    DSProdutos: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFiltroProdutos: TfrmFiltroProdutos;
+
+implementation
+
+{$R *.dfm}
+
+end.

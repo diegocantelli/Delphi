@@ -1,0 +1,83 @@
+unit uClienteDAO;
+
+interface
+uses
+  ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uSistemaController, uConexao, uClienteModel;
+
+type
+  TClienteDAO = class
+    private
+      FConexao : TConexao;
+    public
+      constructor Create;
+      function Alterar(AClienteModel:TClienteModel):Boolean;
+      function Deletar(AClienteModel:TClienteModel):Boolean;
+      function Incluir(AClienteModel:TClienteModel):Boolean;
+      function Obter:TZQuery;
+  end;
+
+implementation
+
+{ TClienteDAO }
+
+function TClienteDAO.Alterar(AClienteModel: TClienteModel): Boolean;
+var
+  VQuery:TZQuery;
+begin
+  VQuery := FConexao.CriarQuery;
+  VQuery.Close;
+  VQuery.SQL.Clear;
+  VQuery.SQL.Add('update clientes set nome =:nome  '
+                +' where id = :id');
+  VQuery.ParamByName('nome').AsString := AClienteModel.Nome;
+  VQuery.ParamByName('id').AsInteger := AClienteModel.Codigo;
+  VQuery.ExecSQL;
+  Result := True;
+end;
+
+constructor TClienteDAO.Create;
+begin
+  FConexao := TSistemaControll.GetInstance.Conexao;
+end;
+
+function TClienteDAO.Deletar(AClienteModel: TClienteModel): Boolean;
+var
+  VQuery:TZQuery;
+begin
+  VQuery := FConexao.CriarQuery;
+  VQuery.Close;
+  VQuery.SQL.Clear;
+  VQuery.SQL.Add('delete from clientes where id = :id ');
+  VQuery.ParamByName('id').AsInteger := AClienteModel.Codigo;
+  VQuery.ExecSQL;
+  Result := True;
+
+end;
+
+function TClienteDAO.Incluir(AClienteModel:TClienteModel): Boolean;
+var
+  VQuery:TZQuery;
+begin
+  VQuery := FConexao.CriarQuery;
+  VQuery.Close;
+  VQuery.SQL.Clear;
+  VQuery.SQL.Add('insert into clientes (nome) values(:nome) ');
+  VQuery.ParamByName('nome').AsString := AClienteModel.Nome;
+  VQuery.ExecSQL;
+  Result := True;
+end;
+
+function TClienteDAO.Obter: TZQuery;
+var
+  VQuery:TZQuery;
+begin
+  VQuery := FConexao.CriarQuery;
+  VQuery.Close;
+  VQuery.SQL.Clear;
+  VQuery.SQL.Add('select id as Codigo, nome as Nome from clientes ');
+  VQuery.Open;
+  Result := VQuery;
+end;
+
+end.

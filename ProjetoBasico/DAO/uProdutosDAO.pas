@@ -1,0 +1,93 @@
+unit uProdutosDAO;
+
+interface
+
+uses uProdutosModel, uDMConexaoDAO,DB,ZAbstractRODataset,
+     ZAbstractDataset, ZDataset, generics.Collections;
+
+type
+  TProdutosDAO = class
+    private
+      procedure PreencheObjeto(modelo: TProdutosModel; Qry:TZQuery);
+    public
+      function RetornaListaProdutos: TObjectList<TProdutosModel>;
+      function Inserir(modelo:TProdutosModel):Boolean;
+      {TODO -c:Criar demais metodos DAO}
+  end;
+
+implementation
+
+{ TProdutosDAO }
+
+function TProdutosDAO.Inserir(modelo: TProdutosModel): Boolean;
+var
+  Qry:TZQuery;
+  Sucesso:Boolean;
+begin
+  Qry := DMConexao.CriaQuery;
+  Sucesso:=False;
+  with Qry do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add(' insert into produtos(descricao, qtd, custo, v_unitario, '
+          + ' fabricante, marca_modelo, id_fornecedor) '
+          + ' values(:descricao, :qtd, :custo, :v_unitario, :fabricante, '
+          + ' :marca_modelo, :id_fornecedor) ');
+    ParamByName('descricao').AsString   :=   modelo.Descricao;
+    ParamByName('qtd').AsFloat          :=   modelo.Qtd;
+    ParamByName('custo').AsFloat        :=   modelo.Custo;
+    ParamByName('v_unitario').AsFloat   :=   modelo.V_unitario;
+    ParamByName('fabricante').AsString  :=   modelo.Fabricante;
+    ParamByName('marca_modelo').AsString :=  modelo.Marca_modelo;
+    ParamByName('id_fornecedor').AsInteger :=modelo.Fornecedor.Id;
+
+    try
+      Qry.ExecSQL;
+      Sucesso:=True;
+    Except
+    end;
+  end;
+  Qry.Free;
+  Result:=Sucesso;
+end;
+
+procedure TProdutosDAO.PreencheObjeto(modelo: TProdutosModel; Qry:TZQuery);
+begin
+   modelo.Id     := Qry.FieldByName('id_produto').AsInteger;
+   modelo.Qtd           := Qry.FieldByName('qtd').AsFloat;
+   modelo.V_unitario := Qry.FieldByName('v_unitario').AsFloat;
+   modelo.Descricao     := Qry.FieldByName('descricao').AsString;
+   modelo.Custo         := Qry.FieldByName('custo').AsFloat;
+   modelo.Fornecedor.Id := Qry.FieldByName('id_fornecedor').AsInteger;
+end;
+
+function TProdutosDAO.RetornaListaProdutos: TObjectList<TProdutosModel>;
+var
+  Qry:TZQuery;
+  VendasItemModel:TProdutosModel;
+  ListaItens:TObjectList<TProdutosModel>;
+begin
+  Qry:=DMConexao.CriaQuery;
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' select * from produtos ');
+  Qry.Open;
+
+  if Not(Qry.IsEmpty) then
+  begin
+    ListaItens := TObjectList<TProdutosModel>.Create;
+    Qry.First;
+    while not(Qry.eof) do
+    begin
+      VendasItemModel := TProdutosModel.Create;
+      PreencheObjeto(VendasItemModel, Qry);
+      ListaItens.Add(VendasItemModel);
+      Qry.Next;
+    end;
+  end;
+  Qry.Free;
+  Result := ListaItens;
+end;
+
+end.

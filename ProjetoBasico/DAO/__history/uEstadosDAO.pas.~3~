@@ -1,0 +1,36 @@
+unit uEstadosDAO;
+
+interface
+uses
+  SysUtils,ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uConexao;
+
+type
+
+TEstado = class
+  private
+    FConexao : TConexao;
+  public
+    constructor Create;
+    destructor Destroy;override;
+    var function GetQryEstados:TZQuery;
+end;
+
+implementation
+
+{ TEstado }
+
+function TEstado.GetQryEstados: TZQuery;
+var
+  Qry:TZQuery;
+begin
+  Qry :=
+  with Qry do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add(' select * from estados');
+  end;
+end;
+
+end.

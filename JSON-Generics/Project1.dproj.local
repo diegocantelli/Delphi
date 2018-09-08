@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/18 13:14:08.648.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON-Generics\uPessoa.pas</Transaction>
+    <Transaction>2018/07/18 13:16:47.851.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON-Generics\uTJSONTools.pas</Transaction>
+    <Transaction>2018/07/18 13:27:15.156.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON-Generics\Unit1.pas</Transaction>
+    <Transaction>2018/07/18 13:27:15.156.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON-Generics\Unit1.dfm</Transaction>
+    <Transaction>2018/07/18 13:38:25.788.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\JSON-Generics\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

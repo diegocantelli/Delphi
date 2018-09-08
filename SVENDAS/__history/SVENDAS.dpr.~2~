@@ -1,0 +1,15 @@
+program SVENDAS;
+
+uses
+  Vcl.Forms,
+  uInicial in 'Fontes\uInicial.pas' {frmInicial},
+  uClientes in 'Fontes\uClientes.pas' {frmCliente};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmInicial, frmInicial);
+  Application.Run;
+end.

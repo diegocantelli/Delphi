@@ -1,0 +1,27 @@
+unit Mensagem;
+
+interface
+
+type
+  TMensagem = class
+  private
+    FCorpo: string;
+    FCabecalho: string;
+    FPara: string;
+    FDe: string;
+
+
+  published
+    public
+      property Para      :string read FPara write FPara;
+      property De        :string read FDe write FDe;
+      property Cabecalho :string read FCabecalho write FCabecalho;
+      property Corpo     :string read FCorpo write FCorpo;
+  end;
+
+implementation
+
+{ TMensagem }
+
+
+end.

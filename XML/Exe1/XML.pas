@@ -1,0 +1,24 @@
+unit XML;
+
+interface
+uses xmldom, XMLIntf, StdCtrls, Buttons, msxmldom, XMLDoc, ExtCtrls, Mensagem;
+
+type
+  TXml = class(TXMLDocument)
+    private
+    public
+      constructor Create(Caminho:string);
+
+  end;
+
+implementation
+
+{ TXml }
+
+constructor TXml.Create(Caminho: string);
+begin
+  Self.FileName := Caminho;
+  Self.Active   := True;
+end;
+
+end.

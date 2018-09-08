@@ -1,0 +1,44 @@
+unit uClienteController;
+
+interface
+
+uses uClienteModel, uClienteDAO;
+
+type
+  TClienteController = class
+    private
+      FClienteDAO:TClienteDAO;
+    public
+      destructor Destroy;override;
+      constructor Create;
+      function Inserir(ClienteModel:TClienteModel):Boolean;
+      function FiltraCLiente(Filtro:string):String;
+  end;
+
+implementation
+
+{ TClienteController }
+
+constructor TClienteController.Create;
+begin
+  FClienteDAO := TClienteDAO.Create;
+end;
+
+
+destructor TClienteController.Destroy;
+begin
+  FClienteDAO.Free;
+  inherited;
+end;
+
+function TClienteController.FiltraCLiente(Filtro: string): String;
+begin
+  result:=FClienteDAO.FiltraCliente(Filtro);
+end;
+
+function TClienteController.Inserir(ClienteModel:TClienteModel):Boolean;
+begin
+  result := FClienteDAO.Inserir(ClienteModel);
+end;
+
+end.

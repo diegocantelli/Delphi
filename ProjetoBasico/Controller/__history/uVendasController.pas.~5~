@@ -1,0 +1,37 @@
+unit uVendasController;
+
+interface
+
+uses uVendasDAO, uProdutosModel;
+
+type
+  TVendasController = class
+    private
+      FVendasDAO:TVendasDAO;
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function Gravar(ProdutosModel:TProdutosModel):Boolean;
+  end;
+
+implementation
+
+{ TVendasController }
+
+constructor TVendasController.Create;
+begin
+  FVendasDAO.Create;
+end;
+
+destructor TVendasController.Destroy;
+begin
+
+  inherited;
+end;
+
+function TVendasController.Gravar(ProdutosModel: TProdutosModel): Boolean;
+begin
+  result:=
+end;
+
+end.

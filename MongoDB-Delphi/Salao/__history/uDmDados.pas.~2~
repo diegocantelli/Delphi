@@ -1,0 +1,25 @@
+unit uDmDados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDmDados = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DmDados: TDmDados;
+
+implementation
+
+{%CLASSGROUP 'FMX.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

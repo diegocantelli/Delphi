@@ -1,0 +1,12 @@
+unit uPedido;
+
+interface
+
+type
+  TPedido = class
+
+  end;
+
+implementation
+
+end.

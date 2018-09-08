@@ -1,0 +1,34 @@
+unit uSingletonImpressao;
+
+interface
+type
+  TSingletonImpressao = class
+    private
+      constructor Create;
+    public
+      class function GetInstance:TSingletonImpressao;
+      procedure FazAlgumaCoisa;
+  end;
+
+implementation
+var
+  _instancia:TSingletonImpressao;
+
+{ TSingletonImpressao }
+
+constructor TSingletonImpressao.Create;
+begin
+
+end;
+
+procedure TSingletonImpressao.FazAlgumaCoisa;
+begin
+
+end;
+
+class function TSingletonImpressao.GetInstance: TSingletonImpressao;
+begin
+
+end;
+
+end.

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/28 16:49:45.000.230,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/31 13:21:28.000.131,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/31 13:22:36.000.343,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uInicial.dfm=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2018/07/31 13:22:36.000.343,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uInicial.pas=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/07/31 13:23:03.000.056,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\SVENDAS.dproj=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2018/07/31 13:49:28.000.012,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/07/31 13:53:08.000.462,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uClientes.dfm</Transaction>
+    <Transaction>2018/07/31 13:53:08.000.462,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uClientes.pas</Transaction>
+    <Transaction>2018/08/01 13:12:52.000.446,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/08/01 13:13:06.000.935,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uFuncoes.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/08/01 13:23:32.000.381,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/08/01 13:25:07.000.429,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uProdutos.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.dfm</Transaction>
+    <Transaction>2018/08/01 13:25:07.000.429,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uProdutos.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/08/02 13:40:08.000.963,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas</Transaction>
+    <Transaction>2018/08/02 13:40:52.000.915,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uDm.pas</Transaction>
+    <Transaction>2018/08/02 13:40:52.000.915,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\SVENDAS\Fontes\uDm.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

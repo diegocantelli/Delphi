@@ -1,0 +1,20 @@
+unit uLoginController;
+
+interface
+
+type
+  TLoginController = class
+    public
+      function Logar:Boolean;
+  end;
+
+implementation
+
+{ TLoginController }
+
+function TLoginController.Logar(LoginModel): Boolean;
+begin
+  result := True;
+end;
+
+end.

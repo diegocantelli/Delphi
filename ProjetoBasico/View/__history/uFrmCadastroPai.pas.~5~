@@ -1,0 +1,33 @@
+unit uFrmCadastroPai;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls,ZAbstractConnection, ZConnection,
+  DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, uConexao;
+
+type
+  TfrmCadastroPai = class(TForm)
+    pnlOperacaoes: TPanel;
+    btnNovo: TButton;
+    btnGravar: TButton;
+    btnCancelar: TButton;
+    btnExcluir: TButton;
+    btnSair: TButton;
+  private
+    { Private declarations }
+    QryInserir : TZQuery;
+    QryUpdate  : TZQuery;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroPai: TfrmCadastroPai;
+
+implementation
+
+{$R *.dfm}
+
+end.

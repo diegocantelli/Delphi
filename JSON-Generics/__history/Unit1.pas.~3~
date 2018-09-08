@@ -1,0 +1,50 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, uPessoa, uTJSONTools;
+
+type
+  TForm1 = class(TForm)
+    BitBtn1: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.BitBtn1Click(Sender: TObject);
+var
+   objPessoa: TPessoa;
+begin
+  objPessoa := TPessoa.Create;
+  objPessoa.PessIden := 1;
+  objPessoa.PessNome := 'Diego';
+
+  if(TJSONTools.saveFileJSON<TPessoa>(objPessoa,'c:\pessoa.txt'))then
+    ShowMessage('Criou o arquivo no caminho: ' + #13 + ' C:\pessoa.txt');
+
+  objPessoa := TJSONTools.loadFileJSON<TPessoa>('C:\pessoa.txt');
+
+  if (Assigned(objPessoa)) then
+  begin
+    ShowMessage(
+      'PessIden: ' + IntToStr(objPessoa.PessIden) + #13 +
+      'PessNome: ' + objPessoa.PessNome
+    );
+  end
+  else
+    ShowMessage('Nao foi possivel des-serializar o objeto');
+end;
+
+end.

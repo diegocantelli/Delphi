@@ -1,0 +1,12 @@
+unit uItemPedido;
+
+interface
+
+type
+  TItemPedido = class
+
+  end;
+
+implementation
+
+end.

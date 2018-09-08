@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/16 13:16:05.601.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\HTTP\HTTP-Download\uDownload.pas</Transaction>
+    <Transaction>2018/07/16 13:16:05.601.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\HTTP\HTTP-Download\uDownload.dfm</Transaction>
+    <Transaction>2018/07/16 13:50:09.929.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\HTTP\HTTP-Download\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

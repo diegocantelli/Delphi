@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/28 16:49:45.000.230,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/08 13:33:39.000.607,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/08 13:35:01.000.044,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmPrincipal.fmx</Transaction>
+    <Transaction>2018/08/08 13:35:01.000.044,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmPrincipal.pas</Transaction>
+    <Transaction>2018/08/08 13:35:12.000.617,C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Project1.dproj</Transaction>
+    <Transaction>2018/08/08 13:36:21.000.221,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas</Transaction>
+    <Transaction>2018/08/08 13:36:46.000.949,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.fmx=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmCadastroPadrao.fmx</Transaction>
+    <Transaction>2018/08/08 13:36:46.000.949,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmCadastroPadrao.pas</Transaction>
+    <Transaction>2018/08/08 13:43:15.000.151,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas</Transaction>
+    <Transaction>2018/08/08 13:44:06.000.218,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.fmx=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmCadastroServicos.fmx</Transaction>
+    <Transaction>2018/08/08 13:44:06.000.218,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uFrmCadastroServicos.pas</Transaction>
+    <Transaction>2018/08/08 13:45:13.000.530,=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas</Transaction>
+    <Transaction>2018/08/08 13:45:23.000.260,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uDmDados.dfm</Transaction>
+    <Transaction>2018/08/08 13:45:23.000.260,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MongoDB-Delphi\Salao\uDmDados.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

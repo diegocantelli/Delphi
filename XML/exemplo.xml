@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO8859-1" ?>
+<MENSAGEM>
+  <AVISO>
+    <PESSOA>
+      <DE>Wesley</DE>
+      <PARA>Henrylle</PARA>
+      <CABECALHO>Entregar V�deo Aula</CABECALHO>
+      <CORPO>Estou aguardando a entrega das v�deos</CORPO>
+      <DT> 
+        <ANO>2018</ANO>
+        <MES>08</MES>
+        <DIA>02</DIA>
+      </DT>
+    </PESSOA>	
+  </AVISO>
+  <AVISO>
+    <DE>Wesley</DE>
+    <PARA>Rafael Silva</PARA>
+    <CABECALHO>Entregar Artigo</CABECALHO>
+    <CORPO>Estou aguardando a entrega dos artigos</CORPO>
+    <DT> 
+	<ANO>2019</ANO>
+	<MES>06</MES>
+	<DIA>16</DIA>
+    </DT>	
+  </AVISO>  
+  <AVISO>
+    <DE>Rafael Silva</DE>
+    <PARA>Wesley</PARA>
+    <CABECALHO>Re: Entregar Artigo</CABECALHO>
+    <CORPO>Seguem os artigos conforme combinado</CORPO>
+    <DT> 
+	<ANO>2015</ANO>
+	<MES>01</MES>
+	<DIA>01</DIA>
+    </DT>
+  </AVISO>    
+  <AVISO>
+    <DE>Henrylle</DE>
+    <PARA>Wesley</PARA>
+    <CABECALHO>Re: Entregar V�deo Aula</CABECALHO>
+    <CORPO>Seguem as v�deo aulas conforme combinado</CORPO>
+    <DT> 
+	<ANO>2018</ANO>
+	<MES>07</MES>
+	<DIA>12</DIA>
+    </DT>
+  </AVISO>    
+</MENSAGEM>

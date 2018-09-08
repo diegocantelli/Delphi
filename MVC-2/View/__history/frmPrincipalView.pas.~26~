@@ -1,0 +1,83 @@
+unit frmPrincipalView;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, StdCtrls, uConexao, uSistemaController, ActnList,
+  PlatformDefaultStyleActnCtrls, ActnMan, ToolWin, ActnCtrls, ActnMenus,
+  frmCliente;
+
+type
+  TformPrincipal = class(TForm)
+    Button1: TButton;
+    ActionManager1: TActionManager;
+    Action1: TAction;
+    ActionMainMenuBar1: TActionMainMenuBar;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure Action1Execute(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CarregarCliente;
+  public
+    { Public declarations }
+  end;
+
+var
+  formPrincipal: TformPrincipal;
+
+implementation
+
+uses uClienteController;
+
+{$R *.dfm}
+
+procedure TformPrincipal.Action1Execute(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadClientes, frmCadClientes);
+  try
+    frmCadClientes.ShowModal;
+  finally
+    frmCadClientes.Release;
+  end;
+end;
+
+procedure TformPrincipal.Button1Click(Sender: TObject);
+var
+  VConexao:TConexao;
+begin
+  try
+    VConexao := TConexao.Create;
+    VConexao.GetConn.Connected := True;
+    if VConexao.GetConn.Connected then
+      ShowMessage('Conectado');
+  finally
+    FreeAndNil(VConexao);
+  end;
+end;
+
+procedure TformPrincipal.CarregarCliente;
+var
+  VClienteController : TClienteController;
+begin
+  VClienteController := TClienteController.Create;
+end;
+
+procedure TformPrincipal.FormCreate(Sender: TObject);
+begin
+  TSistemaControll.GetInstance();
+  TSistemaControll.GetInstance.CarregarEmpresa(1);
+end;
+
+procedure TformPrincipal.FormDestroy(Sender: TObject);
+begin
+  TSistemaControll.GetInstance.Destroy;
+end;
+
+initialization
+  ReportMemoryLeaksOnShutdown := True;
+
+end.

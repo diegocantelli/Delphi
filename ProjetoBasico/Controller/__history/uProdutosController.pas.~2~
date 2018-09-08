@@ -1,0 +1,15 @@
+unit uProdutosController;
+
+interface
+
+uses uProdutosModel;
+
+type
+  TProdutosController = class
+    public
+      function Inserir(modelo:TProdutosModel):Boolean;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,24 @@
+unit uBlibliotecaFuncoes;
+
+interface
+
+uses
+  Forms, StdCtrls;
+
+procedure LimpaCampos(Frm:TForm);
+
+implementation
+
+procedure LimpaCampos(Frm:TForm);
+var
+  i:Integer;
+begin
+  for i := frm.ComponentCount -1 downto 0 do
+  begin
+    if frm.Components[i] is TEdit then
+      TEdit(frm.Components[i]).Text := '';
+  end;
+
+end;
+
+end.

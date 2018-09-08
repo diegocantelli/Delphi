@@ -1,0 +1,15 @@
+unit uVendaItemController;
+
+interface
+
+uses uVendaItemModel, Generics.Collections;
+
+type
+  TVendaItemController = class
+    public
+      function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,41 @@
+unit uClienteModel;
+
+interface
+
+type
+  TClienteModel = class
+    private
+    FTipoPessoa: string;
+    FFantasia: string;
+    FBairro: string;
+    FSite: string;
+    FEmail: string;
+    FIM: string;
+    FCpfCnpj: string;
+    FId: Integer;
+    FIe: string;
+    FRazSoc: string;
+    FNome: string;
+    FEndereco: string;
+    FCidade: integer;
+    FEstado: integer;
+    public
+      property Id:Integer read FId write FId;
+      property RazSoc:string read FRazSoc write FRazSoc;
+      property Fantasia:string read FFantasia write FFantasia;
+      property CpfCnpj:string read FCpfCnpj write FCpfCnpj;
+      property Nome:string read FNome write FNome;
+      property Email:string read FEmail write FEmail;
+      property Site:string read FSite write FSite;
+      property Endereco:string read FEndereco write FEndereco;
+      property Bairro:string read FBairro write FBairro;
+      property IE:string read FIe write FIe;
+      property IM:string read FIM write FIM;
+      property Estado:integer read FEstado write FEstado;
+      property Cidade:integer read FCidade write FCidade;
+      property TipoPessoa:string read FTipoPessoa write FTipoPessoa;
+  end;
+
+implementation
+
+end.

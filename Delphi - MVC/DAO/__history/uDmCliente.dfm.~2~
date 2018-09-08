@@ -1,0 +1,25 @@
+object DMCliente: TDMCliente
+  OldCreateOrder = False
+  Height = 245
+  Width = 389
+  object sqlPesquisar: TZQuery
+    Params = <>
+    Left = 40
+    Top = 24
+  end
+  object sqlinserir: TZQuery
+    Params = <>
+    Left = 40
+    Top = 72
+  end
+  object sqlAlterar: TZQuery
+    Params = <>
+    Left = 40
+    Top = 128
+  end
+  object sqlExcluir: TZQuery
+    Params = <>
+    Left = 40
+    Top = 176
+  end
+end

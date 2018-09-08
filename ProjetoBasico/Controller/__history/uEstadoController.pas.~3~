@@ -1,0 +1,22 @@
+unit uEstadoController;
+
+interface
+
+type
+  TEstadoController = class
+    public
+      constructor Create;
+      destructor Destroy;override;
+      function GetQueryEstados:string;
+  end;
+
+implementation
+
+{ TEstadoController }
+
+function TEstadoController.GetQueryEstados: string;
+begin
+  resul
+end;
+
+end.

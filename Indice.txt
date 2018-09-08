@@ -1,0 +1,7 @@
+Delphi. Manipulando JSON. - https://youtu.be/JWKLIN1EKBs?t=1128
+
+Atual - criando servidores rest - https://youtu.be/_P6waeTlhVc?t=1020
+
+manipulando json - https://www.youtube.com/watch?v=MLoeLpII9IE
+
+Convertendo entre Objeto e JSON com apenas uma linha de código - https://www.youtube.com/watch?v=6kecuVQrRCY

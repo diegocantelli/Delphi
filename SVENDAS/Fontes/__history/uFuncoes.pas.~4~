@@ -1,0 +1,19 @@
+unit uFuncoes;
+
+interface
+
+type
+  TFuncoes = class
+    class function TestarPermissao(nomeForm:string):Boolean;
+  end;
+
+implementation
+
+{ TFuncoes }
+
+class function TFuncoes.TestarPermissao(nomeForm: string): Boolean;
+begin
+  Result:=True;
+end;
+
+end.

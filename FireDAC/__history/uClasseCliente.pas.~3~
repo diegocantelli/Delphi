@@ -1,0 +1,19 @@
+unit uClasseCliente;
+
+interface
+
+type
+  TCliente = class
+    private
+      FId:Integer;
+      FNome:string;
+      FDtNasc:TDate;
+    public
+      propertie Id:Integer read FId write FId;
+      propertie Nome: string read FNome write FNome;
+      propertie DtNasc:TDate read FDtNasc write FDtNasc;
+  end;
+
+implementation
+
+end.

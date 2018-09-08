@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.MestreDetalhe" Type="System.String" Value="MestreDetalhe" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uCliente" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uItemPedido" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uProduto" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uPedido" Type="System.String" Value="" Category="General" IsBrowsable="False" />
+</TgConfig>

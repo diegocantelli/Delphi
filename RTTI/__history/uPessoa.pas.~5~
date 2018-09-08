@@ -1,0 +1,34 @@
+unit uPessoa;
+
+interface
+
+type
+  TPessoa = class
+  private
+    FPessoa: string;
+    FCodigo: Integer;
+  published
+  public
+    constructor Create;
+    destructor Destroy;override;
+    procedure Insert(Aid:Integer);
+    property Pessoa:string read FPessoa write FPessoa;
+    property Codigo:Integer read FCodigo write FCodigo;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+
+end;
+
+destructor TPessoa.Destroy;
+begin
+
+  inherited;
+end;
+
+end.

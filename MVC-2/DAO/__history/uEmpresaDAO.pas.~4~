@@ -1,0 +1,31 @@
+unit uEmpresaDAO;
+
+interface
+
+uses
+  SysUtils,uEmpresaModel,ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uSistemaController;
+
+type
+  TEmpresaDAO = class
+    private
+    public
+      procedure Carregar(AEmpresaModel:TEmpresaModel);
+  end;
+
+implementation
+
+{ TEmpresaDAO }
+
+procedure TEmpresaDAO.Carregar(AEmpresaModel: TEmpresaModel);
+var
+  VQuery : TZQuery;
+begin
+  try
+    VQuery := TSistemaControll.GetInstance.Conexao.CriarQuery;
+  finally
+    FreeAndNil(VQuery);
+  end;
+end;
+
+end.

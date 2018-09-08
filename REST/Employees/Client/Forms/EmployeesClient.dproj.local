@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/28 16:49:45.000.230,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018/08/16 13:48:42.000.240,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2018/08/20 13:40:11.638,=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/08/20 13:41:33.813,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\REST\Employees\Client\Forms\frmMain.fmx=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
+    <Transaction>2018/08/20 13:41:33.813,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\REST\Employees\Client\Forms\frmMain.pas=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2018/08/20 13:42:02.507,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\REST\Employees\Client\Forms\EmployeesClient.dproj=C:\Users\pc-cantelli\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>  <ActiveMobileDevice>   <NoProfile iOSSimulator="iPhone5"/>
+  </ActiveMobileDevice>
+</BorlandProject>

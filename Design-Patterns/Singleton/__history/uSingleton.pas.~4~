@@ -1,0 +1,78 @@
+unit uSingleton;
+
+interface
+
+
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TLoggerSingleton = class
+  private
+    // variável que aponta para o arquivo de log
+    ArquivoLog: TextFile;
+
+    // o construtor é declarado como privado
+    // pois o método principal é "ObterInstancia"
+    constructor Create;
+  public
+    // método principal do Singleton
+    class function ObterInstancia: TLoggerSingleton;
+
+    // método chamado pelo "Create" indiretamente
+    class function NewInstance: TObject; override;
+
+    // método para registrar o texto do parâmetro no arquivo de log
+    procedure RegistrarLog(const Texto: string);
+end;
+
+type
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TLoggerSingleton }
+
+constructor TLoggerSingleton.Create;
+var
+  DiretorioAplicacao:string;
+begin
+  DiretorioAplicacao := ExtractFilePath(Application.ExeName);
+  AssignFile(ArquivoLog, DiretorioAplicacao + 'log.txt');
+
+  if not(FileExists(DiretorioAplicacao + 'log.txt')) then
+  begin
+    Rewrite(ArquivoLog);
+    CloseFile(ArquivoLog);
+  end;
+
+end;
+
+class function TLoggerSingleton.NewInstance: TObject;
+begin
+
+end;
+
+class function TLoggerSingleton.ObterInstancia: TLoggerSingleton;
+begin
+
+end;
+
+procedure TLoggerSingleton.RegistrarLog(const Texto: string);
+begin
+
+end;
+
+end.

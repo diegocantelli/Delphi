@@ -1,0 +1,48 @@
+program prjBasico;
+
+uses
+  Forms,
+  uFrmPrincipal in 'View\uFrmPrincipal.pas' {frmPrincipal},
+  uConexao in 'DAO\uConexao.pas',
+  uFrmLogin in 'View\uFrmLogin.pas' {frmLogin},
+  uLoginDao in 'DAO\uLoginDao.pas',
+  uLoginModel in 'Model\uLoginModel.pas',
+  uLoginController in 'Controller\uLoginController.pas' {/  uBliblioteca in 'Bibliotecas\uBliblioteca.pas';},
+  uFrmCadastroPai in 'View\uFrmCadastroPai.pas' {frmCadastroPai},
+  uFrmCadastroCliente in 'View\uFrmCadastroCliente.pas' {frmCadastroCliente},
+  uClienteController in 'Controller\uClienteController.pas',
+  uClienteDAO in 'DAO\uClienteDAO.pas',
+  uClienteModel in 'Model\uClienteModel.pas',
+  uFrmCadastroEstados in 'View\uFrmCadastroEstados.pas' {frmCadastroEstados},
+  uFrmCadastroCidade in 'View\uFrmCadastroCidade.pas' {frmCadastroCidade},
+  uEstadosDAO in 'DAO\uEstadosDAO.pas',
+  uEstadoController in 'Controller\uEstadoController.pas',
+  uDMConexaoDAO in 'DAO\uDMConexaoDAO.pas' {DMConexao: TDataModule},
+  uFrmFiltroPai in 'View\uFrmFiltroPai.pas' {frmFiltroPai},
+  uFrmFiltroClientes in 'View\uFrmFiltroClientes.pas' {frmFiltroClientes},
+  EnumOperacao in 'Bibliotecas\EnumOperacao.pas',
+  uBlibliotecaFuncoes in 'Bibliotecas\uBlibliotecaFuncoes.pas',
+  uFrmCadastroFornecedores in 'View\uFrmCadastroFornecedores.pas' {frmCadastroFornecedores},
+  uFornecedoresController in 'Controller\uFornecedoresController.pas',
+  uFornecedorModel in 'Model\uFornecedorModel.pas',
+  uFornecedoresDAO in 'DAO\uFornecedoresDAO.pas',
+  uFrmFiltroFornecedores in 'View\uFrmFiltroFornecedores.pas' {frmFiltroFornecedores},
+  uFrmFiltroProdutos in 'View\uFrmFiltroProdutos.pas' {frmFiltroProdutos};
+
+{frmCadastroEstados}
+
+
+//  uBliblioteca in 'Bibliotecas\uBliblioteca.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TDMConexao, DMConexao);
+  Application.CreateForm(TfrmCadastroFornecedores, frmCadastroFornecedores);
+  Application.CreateForm(TfrmFiltroFornecedores, frmFiltroFornecedores);
+  Application.CreateForm(TfrmFiltroProdutos, frmFiltroProdutos);
+  Application.Run;
+end.

@@ -1,0 +1,21 @@
+unit uProdutosModel;
+
+interface
+
+type
+  TProdutosModel = class
+    public
+      property Id:int read id write id;
+      property Descricao:string read FDescricao write FDescricao;
+      property Qtd: read FQtd write FQtd;
+      property custo:int read id write id;
+      property v_unitario:int read id write id;
+      property v:int read id write id;
+      property marca_modelo:int read id write id;
+      property id_fornecedor:int read id write id;
+
+  end;
+
+implementation
+
+end.

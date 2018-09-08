@@ -1,0 +1,64 @@
+unit uFrmLogin;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, uLoginController, uLoginModel, uFrmPrincipal;
+
+type
+  TfrmLogin = class(TForm)
+    edtLogin: TLabeledEdit;
+    edtSenha: TLabeledEdit;
+    btnLogar: TButton;
+    btnCancelar: TButton;
+    procedure btnLogarClick(Sender: TObject);
+    procedure PreencheObjeto(LoginModel:TLoginModel);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLogin: TfrmLogin;
+  frmPrincipal : TFrmPrincipal;
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmLogin.btnLogarClick(Sender: TObject);
+var
+  LoginController : TLoginController;
+  LoginModel : TLoginModel;
+begin
+  LoginController := TLoginController.Create;
+  LoginModel := TLoginModel.Create;
+  frmPrincipal := TFrmPrincipal.Create(nil);
+  try
+    PreencheObjeto(LoginModel);
+    if LoginController.Logar(LoginModel)then
+    begin
+      frmPrincipal.ShowModal;
+    end
+    else
+      ShowMessage('Login ou senha incorretos !');
+  finally
+    frmPrincipal.Close;
+    FreeAndNil(LoginModel);
+    FreeAndNil(LoginController);
+  end;
+end;
+
+procedure TfrmLogin.PreencheObjeto(LoginModel: TLoginModel);
+begin
+  LoginModel.Login := edtLogin.Text;
+  LoginModel.Senha := edtSenha.Text;
+end;
+
+initialization
+  ReportMemoryLeaksOnShutdown := True;
+
+end.

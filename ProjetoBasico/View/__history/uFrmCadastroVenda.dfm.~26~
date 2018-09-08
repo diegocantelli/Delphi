@@ -1,0 +1,227 @@
+inherited frmCadastroVendas: TfrmCadastroVendas
+  Caption = 'Vendas'
+  ClientHeight = 451
+  ClientWidth = 752
+  OnCreate = FormCreate
+  OnShow = FormShow
+  ExplicitWidth = 768
+  ExplicitHeight = 490
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label10: TLabel [0]
+    Left = 533
+    Top = 86
+    Width = 45
+    Height = 13
+    Caption = 'Sub Total'
+  end
+  inherited pnlOperacaoes: TPanel
+    Top = 410
+    Width = 752
+    ExplicitLeft = 0
+    ExplicitTop = 410
+    ExplicitWidth = 752
+    inherited btnGravar: TButton
+      Left = 176
+      OnClick = btnGravarClick
+      ExplicitLeft = 176
+    end
+    inherited btnCancelar: TButton
+      Left = 336
+      ExplicitLeft = 336
+    end
+    inherited btnExcluir: TButton
+      Left = 496
+      ExplicitLeft = 496
+    end
+    inherited btnSair: TButton
+      Left = 656
+      Top = 6
+      ExplicitLeft = 656
+      ExplicitTop = 6
+    end
+  end
+  object Panel1: TPanel [2]
+    Left = 0
+    Top = 0
+    Width = 752
+    Height = 73
+    Align = alTop
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 16
+      Top = 24
+      Width = 85
+      Height = 13
+      Caption = 'C'#243'digo da venda:'
+    end
+    object Label2: TLabel
+      Left = 176
+      Top = 24
+      Width = 37
+      Height = 13
+      Caption = 'Cliente:'
+    end
+    object Label3: TLabel
+      Left = 335
+      Top = 24
+      Width = 75
+      Height = 13
+      Caption = 'Data da venda:'
+    end
+    object Label5: TLabel
+      Left = 495
+      Top = 24
+      Width = 75
+      Height = 13
+      Caption = 'Data faturado: '
+    end
+    object txtCodigo: TEdit
+      Left = 16
+      Top = 43
+      Width = 57
+      Height = 21
+      TabOrder = 0
+    end
+    object txtDataVenda: TEdit
+      Left = 335
+      Top = 43
+      Width = 100
+      Height = 21
+      TabOrder = 1
+    end
+    object txtDataFaturado: TEdit
+      Left = 495
+      Top = 43
+      Width = 100
+      Height = 21
+      TabOrder = 2
+    end
+    object chkFaturado: TCheckBox
+      Left = 655
+      Top = 45
+      Width = 97
+      Height = 17
+      Caption = 'Faturado'
+      TabOrder = 3
+    end
+    object cmbClientes: TComboBox
+      Left = 175
+      Top = 43
+      Width = 130
+      Height = 21
+      TabOrder = 4
+      Text = '-- Selecione um cliente --'
+    end
+  end
+  object Panel2: TPanel [3]
+    Left = 0
+    Top = 73
+    Width = 752
+    Height = 64
+    Align = alTop
+    TabOrder = 2
+    object Label4: TLabel
+      Left = 12
+      Top = 13
+      Width = 26
+      Height = 13
+      Caption = 'Item:'
+    end
+    object Label6: TLabel
+      Left = 178
+      Top = 13
+      Width = 21
+      Height = 13
+      Caption = 'QTD'
+    end
+    object Label7: TLabel
+      Left = 242
+      Top = 14
+      Width = 38
+      Height = 13
+      Caption = 'Vlr. Unit'
+    end
+    object Label8: TLabel
+      Left = 334
+      Top = 13
+      Width = 45
+      Height = 13
+      Caption = 'Desconto'
+    end
+    object Label9: TLabel
+      Left = 429
+      Top = 13
+      Width = 45
+      Height = 13
+      Caption = 'Sub Total'
+    end
+    object Label11: TLabel
+      Left = 533
+      Top = 13
+      Width = 24
+      Height = 13
+      Caption = 'Total'
+    end
+    object CmbItens: TComboBox
+      Left = 12
+      Top = 32
+      Width = 145
+      Height = 21
+      TabOrder = 0
+    end
+    object txtQtd: TEdit
+      Left = 178
+      Top = 32
+      Width = 47
+      Height = 21
+      TabOrder = 1
+    end
+    object txtValorUnitario: TEdit
+      Left = 242
+      Top = 33
+      Width = 77
+      Height = 21
+      TabOrder = 2
+    end
+    object txtDesconto: TEdit
+      Left = 334
+      Top = 32
+      Width = 83
+      Height = 21
+      TabOrder = 3
+    end
+    object txtSubTotal: TEdit
+      Left = 429
+      Top = 32
+      Width = 83
+      Height = 21
+      TabOrder = 4
+    end
+    object btnAddItem: TButton
+      Left = 656
+      Top = 28
+      Width = 75
+      Height = 25
+      Caption = 'Adicionar item'
+      TabOrder = 5
+      OnClick = btnAddItemClick
+    end
+  end
+  object StrGridVendasItens: TStringGrid [4]
+    Left = 0
+    Top = 137
+    Width = 752
+    Height = 273
+    Align = alClient
+    ColCount = 7
+    TabOrder = 3
+  end
+  object txtTotal: TEdit [5]
+    Left = 535
+    Top = 105
+    Width = 83
+    Height = 21
+    TabOrder = 4
+  end
+end

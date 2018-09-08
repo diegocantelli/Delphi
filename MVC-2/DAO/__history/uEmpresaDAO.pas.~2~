@@ -1,0 +1,17 @@
+unit uEmpresaDAO;
+
+interface
+
+uses
+  uEmpresaModel;
+
+type
+  TEmpresaDAO = class
+    private
+    public
+      procedure Carregar(AEmpresaModel=)
+  end;
+
+implementation
+
+end.

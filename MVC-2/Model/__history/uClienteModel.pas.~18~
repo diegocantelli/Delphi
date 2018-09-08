@@ -1,0 +1,71 @@
+unit uClienteModel;
+
+// unit uConexao;
+
+interface
+
+uses
+  ZAbstractConnection, ZConnection, DB,ZAbstractRODataset,ZAbstractDataset,
+  SysUtils,ZDataset, uEnumerado;
+
+type
+  TClienteModel = class
+  private
+    FCodigo: Integer;
+    FNome: string;
+    procedure SetCodigo(const Value: Integer);
+    procedure SetNome(const Value: string);
+  published
+    public
+      property Codigo:Integer read FCodigo write SetCodigo;
+      property Nome:string read FNome write SetNome;
+      function Salvar:Boolean;
+      function Obter:TZQuery;
+  end;
+
+implementation
+
+uses uClienteDAO;
+
+{ TClienteModel }
+
+function TClienteModel.Obter: TZQuery;
+var
+  VClienteDAO : TClienteDAO;
+begin
+  try
+    VClienteDAO := TClienteDAO.Create;
+    Result := VClienteDAO.Obter;
+  finally
+    FreeAndNil(VClienteDAO)
+  end;
+end;
+
+function TClienteModel.Salvar: Boolean;
+var
+  VClienteDAO : TClienteDAO;
+begin
+  Result:=False;
+  VClienteDAO := TClienteDAO.Create;
+  try
+    case TAcao of
+      uEnumerado.tpAcaoIncluir: Result:=VClienteDAO.Incluir(self);
+      uEnumerado.tpAcaoAlterar: Result:=VClienteDAO.Alterar(self);
+      uEnumerado.tpAcaoExcluir: Result:=VClienteDAO.Deletar(self);
+    end;
+  finally
+    VClienteDAO.Free;
+  end;
+end;
+
+procedure TClienteModel.SetCodigo(const Value: Integer);
+begin
+  FCodigo := Value;
+end;
+
+procedure TClienteModel.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+end.

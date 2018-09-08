@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/05/05 22:05:55.570.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uFrmPrincipal.pas</Transaction>
+    <Transaction>2018/05/05 22:05:55.594.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uFrmPrincipal.dfm</Transaction>
+    <Transaction>2018/05/05 22:06:12.071.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uCliente.pas</Transaction>
+    <Transaction>2018/05/05 22:07:56.462.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uPedido.pas</Transaction>
+    <Transaction>2018/05/05 22:08:35.175.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uProduto.pas</Transaction>
+    <Transaction>2018/05/05 22:09:07.282.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\uItemPedido.pas</Transaction>
+    <Transaction>2018/05/05 22:46:26.810.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\MestreDetalhe\MestreDetalhe.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,78 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, uFrmCadastroCliente, uFrmCadastroEstados, uFrmCadastroCidade,
+  uFrmFiltroClientes;
+
+type
+  TFrmPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastros1: TMenuItem;
+    Clientes1: TMenuItem;
+    Estados1: TMenuItem;
+    Cidades1: TMenuItem;
+    Filtros1: TMenuItem;
+    Clientes2: TMenuItem;
+    procedure Clientes1Click(Sender: TObject);
+    procedure Estados1Click(Sender: TObject);
+    procedure Cidades1Click(Sender: TObject);
+    procedure Clientes2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmPrincipal.Cidades1Click(Sender: TObject);
+var
+  frmCadastroCidade : TfrmCadastroCidade;
+begin
+  frmCadastroCidade := TfrmCadastroCidade.Create(nil);
+  frmCadastroCidade.ShowModal;
+  frmCadastroCidade.Free;
+end;
+
+procedure TFrmPrincipal.Clientes1Click(Sender: TObject);
+var
+  frmCadastroCliente : TfrmCadastroCliente;
+begin
+  frmCadastroCliente := TfrmCadastroCliente.Create(nil);
+  frmCadastroCliente.ShowModal;
+end;
+
+procedure TFrmPrincipal.Clientes2Click(Sender: TObject);
+var
+  frmFiltroClientes : TfrmFiltroClientes;
+begin
+  frmFiltroClientes := TfrmFiltroClientes.Create(nil);
+  frmFiltroClientes.Visible := False;
+  frmFiltroClientes.ShowModal;
+end;
+
+procedure TFrmPrincipal.Estados1Click(Sender: TObject);
+var
+  frmCadastroEstados : TfrmCadastroEstados;
+begin
+  frmCadastroEstados := TfrmCadastroEstados.Create(nil);
+  frmCadastroEstados.ShowModal;
+  frmCadastroEstados.Free;
+end;
+
+procedure TFrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  FreeAndNil(frmPrincipal);
+end;
+
+end.

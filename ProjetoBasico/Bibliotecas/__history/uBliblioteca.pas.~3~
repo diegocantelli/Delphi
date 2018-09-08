@@ -1,0 +1,19 @@
+unit uBliblioteca;
+
+interface
+uses
+  IniFiles, SysUtils, Forms;
+
+procedure SetValorIni(ALocal, ASesao, ASubsessao, AValor:string);
+implementation
+
+procedure SetValorIni(ALocal, ASesao, ASubsessao, AValor:string);
+var
+  IniFile:TIniFile;
+begin
+  IniFile := TIniFile.Create(ALocal);
+  IniFile.WriteString(ASesao, ASubsessao, AValor);
+  IniFile.Free;
+end;
+
+end.

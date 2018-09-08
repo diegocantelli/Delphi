@@ -1,0 +1,40 @@
+unit uEstadosDAO;
+
+interface
+uses
+  SysUtils,ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uConexao;
+
+type
+  TEstado = class
+  private
+    FConexao : TConexao;
+  public
+    constructor Create;
+    destructor Destroy;override;
+    function GetQueryEstados:string;
+end;
+
+implementation
+
+{ TEstado }
+
+constructor TEstado.Create;
+begin
+  FConexao := TConexao.Create;
+end;
+
+destructor TEstado.Destroy;
+begin
+  FConexao.Free;
+  inherited;
+end;
+
+
+
+function TEstado.GetQueryEstados: string;
+begin
+  result := 'select * from estado';
+end;
+
+end.

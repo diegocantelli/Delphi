@@ -1,0 +1,36 @@
+unit uServer;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, IdBaseComponent, IdComponent, IdCustomTCPServer, IdCustomHTTPServer,
+  IdHTTPServer, IdContext;
+
+type
+  TForm1 = class(TForm)
+    IdHTTPServer1: TIdHTTPServer;
+    procedure IdHTTPServer1CommandGet(AContext: TIdContext;
+      ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.IdHTTPServer1CommandGet(AContext: TIdContext;
+  ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
+begin
+  // Retorna a Data e hora
+     AResponseInfo.ContentText := DateTimeToStr(now);
+     AResponseInfo.WriteContent;
+end;
+
+end.

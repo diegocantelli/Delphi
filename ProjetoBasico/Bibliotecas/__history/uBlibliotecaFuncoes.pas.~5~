@@ -1,0 +1,35 @@
+unit uBlibliotecaFuncoes;
+
+interface
+
+uses
+  Forms, StdCtrls, ExtCtrls;
+
+procedure LimpaCampos(Frm:TForm);
+procedure BloqueiaCampos(Frm:TForm);
+
+implementation
+
+procedure LimpaCampos(Frm:TForm);
+var
+  i:Integer;
+begin
+  for i := frm.ComponentCount -1 downto 0 do
+  begin
+    if frm.Components[i] is TLabeledEdit then
+      TLabeledEdit(frm.Components[i]).Text := '';
+  end;
+end;
+
+procedure BloqueiaCampos(Frm:TForm);
+var
+  i:Integer;
+begin
+  for i := frm.ComponentCount -1 downto 0 do
+  begin
+    if frm.Components[i] is TLabeledEdit then
+      TLabeledEdit(frm.Components[i]).Enabled := False;
+  end;
+end;
+
+end.

@@ -1,0 +1,57 @@
+unit uVendasItemDAO;
+
+interface
+
+uses uVendaItemModel, Generics.Collections,uDMConexaoDAO,DB,ZAbstractRODataset,
+     ZAbstractDataset, ZDataset;
+
+type
+  TVendasItemDAO = class
+    private
+      procedure PreencheObjeto(modelo:TVendaItemModel; Qry:TZQuery);
+    public
+      function RetornaListaProdutos:TObjectList<TVendaItemModel>;
+  end;
+
+implementation
+
+{ TVendasItemDAO }
+
+procedure TVendasItemDAO.PreencheObjeto(modelo: TVendaItemModel; Qry:TZQuery);
+begin
+   modelo.IdProduto     := Qry.FieldByName('id_produto').AsInteger;
+   modelo.Qtd           := Qry.FieldByName('qtd').AsFloat;
+   modelo.ValorUnitario := Qry.FieldByName('v_unitario').AsFloat;
+   modelo.Descricao     := Qry.FieldByName('descricao').AsString;
+   modelo.Custo         := Qry.FieldByName('custo').AsFloat;
+   modelo.ValorUnitario := Qry.FieldByName('v_unitario').AsFloat;
+   modelo.IdFornecedor  := Qry.FieldByName('id_fornecedor').AsInteger;
+end;
+
+function TVendasItemDAO.RetornaListaProdutos: TObjectList<TVendaItemModel>;
+var
+  Qry:TZQuery;
+  VendasItemModel:TVendaItemModel;
+  ListaItens:TObjectList<TObject>;
+begin
+  Qry:=DMConexao.CriaQuery;
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' select * from produtos ');
+  Qry.Open;
+
+  if Not(Qry.IsEmpty) then
+  begin
+    VendasItemModel := TVendaItemModel.Create;
+    ListaItens := TObjectList<TObject>.Create;
+    Qry.First;
+    while not(Qry.eof) do
+    begin
+      PreencheObjeto(VendasItemModel, Qry);
+      ListaItens.Add(VendasItemModel);
+    end;
+  end;
+  Result := ListaItens;
+end;
+
+end.

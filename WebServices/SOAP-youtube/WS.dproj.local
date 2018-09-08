@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/06 13:13:26.733.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Unit1.pas</Transaction>
+    <Transaction>2018/07/06 13:13:26.733.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Unit1.dfm</Transaction>
+    <Transaction>2018/07/06 13:13:34.995.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\WS.dproj</Transaction>
+    <Transaction>2018/07/06 13:14:17.881.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Unit2.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\utImplementacao.pas</Transaction>
+    <Transaction>2018/07/06 13:29:02.239.pas,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Unit2.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\moduloServer.pas</Transaction>
+    <Transaction>2018/07/06 13:29:02.239.dfm,C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\Unit2.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\WebServices\SOAP-youtube\moduloServer.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

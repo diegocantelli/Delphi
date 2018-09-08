@@ -1,0 +1,195 @@
+unit uPrincial;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  ITipoPrazo = interface
+  ['{27A3189F-B95F-4762-8000-15672FE3DFD0}']
+    function ConsultarDescricao:string;
+    function ConsultarJuros: string;
+    function ConsultarProjecao(const Valor: real; const QtdeParcelas: integer): string;
+    function ConsultarTotal: string;
+  end;
+
+  IFactoryMethod = interface
+  ['{570F6118-B8AA-413B-9ABB-3CC358C372D7}']
+    function ConsultarPrazo(const Prazo: string): ITipoPrazo;
+  end;
+
+  TFabricaPrazos = class(TInterfacedObject, IFactoryMethod)
+    function ConsultarPrazo(const Prazo: string): ITipoPrazo;
+  end;
+
+  Tprazomensal = class(TInterfacedObject, ITipoPrazo)
+    public
+      function ConsultarDescricao: string;
+      function ConsultarJuros: string;
+      function ConsultarProjecao(const Valor: real;
+        const QtdeParcelas: integer): string;
+      function ConsultarTotal: string;
+  end;
+
+  TPrazoAnual = class(TInterfacedObject, ITipoPrazo)
+    public
+      function ConsultarDescricao: string;
+      function ConsultarJuros: string;
+      function ConsultarProjecao(const Valor: real;
+        const QtdeParcelas: integer): string;
+      function ConsultarTotal: string;
+
+  end;
+
+type
+  TForm1 = class(TForm)
+    edtValor: TEdit;
+    edtQtdParcelas: TEdit;
+    ComboPrazoPagto: TComboBox;
+    btnGerarProjecao: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Memo: TMemo;
+    procedure btnGerarProjecaoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ Tprazomensal }
+
+function Tprazomensal.ConsultarDescricao: string;
+begin
+  result := 'Prazo Mensal para Pagamento';
+end;
+
+function Tprazomensal.ConsultarJuros: string;
+begin
+  result := 'Juros de 3,1% simples ao mês' + sLineBreak;
+end;
+
+function Tprazomensal.ConsultarProjecao(const Valor: real;
+  const QtdeParcelas: integer): string;
+var
+  Projecao: TStringList;
+  Contador: smallint;
+  ValorAjustado: real;
+  DataParcela: TDateTime;
+begin
+  ValorAjustado := Valor;
+  DataParcela := Date;
+  Projecao := TStringList.Create;
+  try
+    for Contador := 1 to QtdeParcelas do
+    begin
+      ValorAjustado := ValorAjustado + (Valor * 0.031);
+      DataParcela := IncMonth(DataParcela, 1);
+
+      Projecao.Add(Format('Parcela %.2d (%s): %m',
+        [Contador, DateToStr(DataParcela), ValorAjustado]));
+    end;
+    result := Projecao.Text;
+  finally
+    FreeAndNil(Projecao);
+  end;
+end;
+
+function Tprazomensal.ConsultarTotal: string;
+begin
+  result := 'Total';
+end;
+
+{ TPrazoAnual }
+
+function TPrazoAnual.ConsultarDescricao: string;
+begin
+  result := 'Prazo Anual para Pagamento';
+end;
+
+function TPrazoAnual.ConsultarJuros: string;
+begin
+  result := 'Juros de 10,5% simples ao ano' + sLineBreak;
+end;
+
+function TPrazoAnual.ConsultarProjecao(const Valor: real;
+  const QtdeParcelas: integer): string;
+var
+  Projecao: TStringList;
+  Contador: smallint;
+  ValorAjustado: real;
+  DataParcela: TDateTime;
+begin
+  ValorAjustado := Valor;
+  DataParcela := Date;
+  Projecao := TStringList.Create;
+  try
+    for Contador := 1 to QtdeParcelas do
+    begin
+      ValorAjustado := ValorAjustado + (Valor * 0.105);
+      DataParcela := IncMonth(DataParcela, 12);
+
+      Projecao.Add(Format('Parcela %.2d (%s): %m',
+        [Contador, DateToStr(DataParcela), ValorAjustado]));
+    end;
+    result := Projecao.Text;
+  finally
+    FreeAndNil(Projecao);
+  end;
+end;
+
+function TPrazoAnual.ConsultarTotal: string;
+begin
+  result := 'Teste Anual';
+end;
+
+{ TFabricaPrazos }
+
+function TFabricaPrazos.ConsultarPrazo(const Prazo: string): ITipoPrazo;
+begin
+  if Prazo = 'Mensal' then
+    result := TPrazoMensal.Create
+  else if Prazo = 'Anual' then
+    result := TPrazoAnual.Create;
+end;
+
+procedure TForm1.btnGerarProjecaoClick(Sender: TObject);
+var
+  // variável para instanciar a fábrica
+  FabricaPrazos: IFactoryMethod;
+  // objeto que será retornado pela fábrica
+  TipoPrazo: ITipoPrazo;
+  // variável que armazenará o valor digitado tela
+  Valor: real;
+  // variável que armazenará a qtde de parcelas digitada na tela
+  QtdeParcelas: integer;
+begin
+  // implementa o metodo ConsultarPrazo da interface IFactoryMethod
+  FabricaPrazos := TFabricaPrazos.Create;
+
+  // retorna uma instancia da interface iTipoPrazo.
+  // É possível fazer essa inferencia pois as classes PrazoMensal e PrazoAnual
+  // implementam a interface iTipoPrazo
+  //O método ConsultarPrazo retorna uma instancia da classe com base no parametro
+  //informado pela classe.
+  TipoPrazo := FabricaPrazos.ConsultarPrazo(ComboPrazoPagto.Text);
+
+  Valor := StrToFloatDef(edtValor.Text, 0);
+  QtdeParcelas := StrToIntDef(edtQtdParcelas.Text, 0);
+  Memo.Lines.Clear;
+  Memo.Lines.Add(TipoPrazo.ConsultarDescricao);
+  Memo.Lines.Add(TipoPrazo.ConsultarJuros);
+  Memo.Lines.Add(TipoPrazo.ConsultarProjecao(Valor, QtdeParcelas));
+end;
+
+end.

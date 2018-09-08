@@ -1,0 +1,17 @@
+unit uBliblioteca;
+
+interface
+uses
+  IniFiles, SysUtils, Forms;
+
+procedure SetValorIni(ALocal, ASesao, ASubsessao, AValor:string);
+implementation
+
+procedure SetValorIni(ALocal, ASesao, ASubsessao, AValor:string);
+var
+  IniFile:TIniFile;
+begin
+  IniFile := TIniFile.Create(ExtractFilePath(Application.exeName)+'config.ini');
+end;
+
+end.

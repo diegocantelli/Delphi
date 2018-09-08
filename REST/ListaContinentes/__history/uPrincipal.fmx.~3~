@@ -1,0 +1,57 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 378
+  ClientWidth = 304
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Align = Bottom
+    Position.Y = 352.000000000000000000
+    Size.Width = 304.000000000000000000
+    Size.Height = 26.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Abrir'
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 304.000000000000000000
+    Size.Height = 352.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 300.000000000000000000
+    Viewport.Height = 348.000000000000000000
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'UTF-8, *;q=0.8'
+    BaseURL = 'https://maps.googleapis.com/maps/api/distancematrix'
+    Params = <>
+    HandleRedirects = True
+    Left = 64
+    Top = 48
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <>
+    Resource = 
+      'json?units=imperial&origins=Washington,DC&destinations=New+York+' +
+      'City,NY'
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 128
+    Top = 24
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 112
+    Top = 136
+  end
+end

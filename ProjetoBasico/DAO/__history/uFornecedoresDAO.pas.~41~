@@ -1,0 +1,169 @@
+unit uFornecedoresDAO;
+
+interface
+
+uses uFornecedorModel, uDMConexaoDAO,SysUtils,ZAbstractConnection,
+     ZConnection, DB, ZAbstractRODataset,ZAbstractDataset, ZDataset,Classes,Contnrs,
+     generics.collections;
+
+type
+  TFornecedoresDAO = class
+    private
+      ListaFornecedores :TObjectList<TFornecedorModel>;
+    public
+      function Inserir(Modelo:TFornecedorModel):Boolean;
+      function Alterar(Modelo:TFornecedorModel):Boolean;
+      function Excluir(Id:Integer):Boolean;
+      procedure RetornaFornecedor(Obj:TObjectList<TFornecedorModel>;
+                                 Cod:Integer=0;
+                                 Fantasia:string='';
+                                 Cnpj:string=''
+                                 );
+  end;
+
+implementation
+
+{ TFornecedoresDAO }
+
+function TFornecedoresDAO.Alterar(Modelo: TFornecedorModel): Boolean;
+var
+  Qry:TZQuery;
+  Sucesso:Boolean;
+begin
+  Sucesso:=False;
+  Qry := DMConexao.CriaQuery;
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' update fornecedor set raz_soc = :raz_soc, fantasia = :fantasia, '
+                                 +' cnpj = :cnpj, endereco = :endereco,  '
+                                 +' bairro = :bairro, '
+                                 +' id_cidade = id_cidade, '
+                                 +' id_estado = :id_estado  '
+             +' where id_fornecedor = :id_fornecedor ');
+  Qry.ParamByName('id_forncedor').AsInteger  := Modelo.Id;
+  Qry.ParamByName('raz_soc').AsString  := Modelo.Razsoc;
+  Qry.ParamByName('fantasia').AsString := Modelo.Fantasia;
+  Qry.ParamByName('cnpj').AsString     := Modelo.Cnpj;
+  Qry.ParamByName('endereco').AsString := Modelo.Endereco;
+  Qry.ParamByName('bairro').AsString   := Modelo.Bairro;
+  Qry.ParamByName('id_cidade').AsInteger := Modelo.Cidade;
+  Qry.ParamByName('id_estado').AsInteger := Modelo.Estado;
+  try
+    Qry.ExecSQL;
+    Sucesso:=True;
+  finally
+    FreeAndNil(Qry);
+  end;
+  Result := Sucesso;
+
+end;
+
+function TFornecedoresDAO.Excluir(Id: Integer): Boolean;
+var
+  Qry:TZQuery;
+  Sucesso:Boolean;
+begin
+  Qry := DMConexao.CriaQuery;
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' delete from fornecedor where id_fornecedor = :id_fornecedor ');
+  Qry.ParamByName('id_fornecedor').AsInteger  := Id;
+  try
+    Qry.ExecSQL;
+  except
+    FreeAndNil(Qry);
+    Sucesso:=False;
+  end;
+  Result := Sucesso;
+
+end;
+
+function TFornecedoresDAO.Inserir(Modelo: TFornecedorModel): Boolean;
+var
+  Qry:TZQuery;
+  Sucesso:Boolean;
+begin
+  Qry := DMConexao.CriaQuery;
+  Qry.Close;
+  Qry.SQL.Clear;
+  Qry.SQL.Add(' insert into fornecedor(raz_soc, fantasia, cnpj, endereco,' +
+                                      ' bairro, id_cidade, id_estado )' +
+                        'values(:raz_soc, :fantasia, :cnpj, :endereco,  '+
+                        ' :bairro, :id_cidade, :id_estado)');
+  Qry.ParamByName('raz_soc').AsString  := Modelo.Razsoc;
+  Qry.ParamByName('fantasia').AsString := Modelo.Fantasia;
+  Qry.ParamByName('cnpj').AsString     := Modelo.Cnpj;
+  Qry.ParamByName('endereco').AsString := Modelo.Endereco;
+  Qry.ParamByName('bairro').AsString   := Modelo.Bairro;
+  Qry.ParamByName('id_cidade').AsInteger := Modelo.Cidade;
+  Qry.ParamByName('id_estado').AsInteger := Modelo.Estado;
+  try
+    Qry.ExecSQL;
+    Sucesso:=True;
+  finally
+    FreeAndNil(Qry);
+  end;
+  Result := Sucesso;
+end;
+
+procedure TFornecedoresDAO.RetornaFornecedor(Obj:TObjectList<TFornecedorModel>;
+                                            Cod: Integer;
+                                            Fantasia :String;
+                                            Cnpj: string);
+  var
+    Qry:TZQuery;
+    FornecedoresModel:TFornecedorModel;
+begin
+  Qry:=DMConexao.CriaQuery;
+
+  with Qry do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add(' select f.*, cid.nome as "NomeCidade", est.nome as "NomeEstado" '+
+            ' from fornecedor f '+
+            ' inner join cidade cid on (cid.id_cidade = f.id_cidade) '+
+            ' inner join estado est on (est.id_estado = f.id_estado) '+
+            ' where 1=1 ');
+    if Cod > 0 then
+    begin
+      SQL.Add('and f.id_forncecedor = :id_fornecedor ');
+      ParamByName('id_fornecedor').AsInteger := Cod;
+    end;
+    if Length(Fantasia) > 0 then
+    begin
+      SQL.Add('and f.fantasia = :fantasia ');
+      ParamByName('fantasia').AsString := Fantasia;
+    end;
+    if Length(Cnpj) > 0 then
+    begin
+      SQL.Add('and f.cnpj = :cnpj ');
+      ParamByName('cnpj').AsString := Cnpj;
+    end;
+    Open;
+
+    if Not(Qry.IsEmpty) then
+    begin
+      Qry.First;
+      while not(Qry.Eof) do
+      begin
+        FornecedoresModel := TFornecedorModel.Create;
+        FornecedoresModel.Id      := FieldByName('id_forncecedor').AsInteger;
+        FornecedoresModel.Razsoc  := FieldByName('Raz_soc').AsString;
+        FornecedoresModel.Fantasia:= FieldByName('Fantasia').AsString;
+        FornecedoresModel.Cnpj    := FieldByName('Cnpj').AsString;
+        FornecedoresModel.Endereco:= FieldByName('endereco').AsString;
+        FornecedoresModel.Bairro  := FieldByName('bairro').AsString;
+        FornecedoresModel.Cidade  := FieldByName('id_cidade').AsInteger;
+        FornecedoresModel.Estado  := FieldByName('id_estado').AsInteger;
+        FornecedoresModel.NomeEstado :=  FieldByName('NomeEstado').AsString;
+        FornecedoresModel.NomeCidade :=  FieldByName('NomeCidade').AsString;
+        Obj.Add(FornecedoresModel);
+        Qry.Next;
+      end;
+    end;
+  end;
+  Qry.Free;
+end;
+
+end.

@@ -1,0 +1,85 @@
+object frmCadastroPadrao: TfrmCadastroPadrao
+  Left = 0
+  Top = 0
+  Caption = 'CadastroPadrao'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 70.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object Panel2: TPanel
+    Align = Bottom
+    Position.Y = 420.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Button1: TButton
+      Action = acNovo
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 24.000000000000000000
+      Position.Y = 20.000000000000000000
+      TabOrder = 8
+    end
+    object Button2: TButton
+      Action = acEditar
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 152.000000000000000000
+      Position.Y = 20.000000000000000000
+      TabOrder = 7
+    end
+    object Button3: TButton
+      Action = acSalvar
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 280.000000000000000000
+      Position.Y = 20.000000000000000000
+      TabOrder = 6
+    end
+    object Button4: TButton
+      Action = acExcluir
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 408.000000000000000000
+      Position.Y = 20.000000000000000000
+      TabOrder = 5
+    end
+    object Button5: TButton
+      Action = acSair
+      Enabled = True
+      ImageIndex = -1
+      Position.X = 536.000000000000000000
+      Position.Y = 20.000000000000000000
+      TabOrder = 4
+    end
+  end
+  object ActionList1: TActionList
+    Left = 304
+    Top = 224
+    object acSalvar: TAction
+      Text = 'Salvar'
+    end
+    object acNovo: TAction
+      Text = 'Novo'
+    end
+    object acExcluir: TAction
+      Text = 'Excluir'
+    end
+    object acSair: TAction
+      Text = 'Sair'
+    end
+    object acEditar: TAction
+      Text = 'Editar'
+    end
+  end
+end

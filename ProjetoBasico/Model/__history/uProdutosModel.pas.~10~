@@ -1,0 +1,48 @@
+unit uProdutosModel;
+
+interface
+
+uses uFornecedorModel;
+
+type
+  TProdutosModel = class
+  private
+    FQtd: Double;
+    FDescricao: string;
+    Fid: Integer;
+    FFornecedor: TFornecedorModel;
+    FFabricante: string;
+    FV_unitario: Double;
+    FMarca_modelo: string;
+    FCusto: Double;
+  published
+    public
+      property Id:Integer read Fid write Fid;
+      property Descricao:string read FDescricao write FDescricao;
+      property Qtd:Double read FQtd write FQtd;
+      property Custo:Double read FCusto write FCusto;
+      property V_unitario:Double read FV_unitario write FV_unitario;
+      property Fabricante:string read FFabricante write FFabricante;
+      property Marca_modelo:string read FMarca_modelo write FMarca_modelo;
+      property Fornecedor:TFornecedorModel read FFornecedor write FFornecedor;
+      constructor Create;
+      destructor Destroy;override;
+
+  end;
+
+implementation
+
+{ TProdutosModel }
+
+constructor TProdutosModel.Create;
+begin
+  FFornecedor := TFornecedorModel.Create;
+end;
+
+destructor TProdutosModel.Destroy;
+begin
+  FFornecedor.Free;
+  inherited;
+end;
+
+end.

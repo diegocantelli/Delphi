@@ -1,0 +1,51 @@
+unit uProdutosDAO;
+
+interface
+
+uses uProdutosModel, uDMConexaoDAO,DB,ZAbstractRODataset,
+     ZAbstractDataset, ZDataset;
+
+type
+  TProdutosDAO = class
+    public
+      function Inserir(modelo:TProdutosModel):Boolean;
+      {TODO -c:Criar demais metodos DAO}
+  end;
+
+implementation
+
+{ TProdutosDAO }
+
+function TProdutosDAO.Inserir(modelo: TProdutosModel): Boolean;
+var
+  Qry:TZQuery;
+  Sucesso:Boolean;
+begin
+  Qry := DMConexao.CriaQuery;
+  Sucesso:=False;
+  with Qry do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add(' insert into produtos(descricao, qtd, custo, v_unitario, '
+          + ' fabricante, marca_modelo, id_fornecedor) '
+          + ' values(:descricao, :qtd, :custo, :v_unitario, :fabricante, '
+          + ' :marca_modelo, :id_fornecedor) ');
+    ParamByName('descricao').AsString   :=   modelo.Descricao;
+    ParamByName('qtd').AsFloat          :=   modelo.Qtd;
+    ParamByName('custo').AsFloat        :=   modelo.Custo;
+    ParamByName('v_unitario').AsFloat   :=   modelo.V_unitario;
+    ParamByName('fabricante').AsString  :=   modelo.Fabricante;
+    ParamByName('marca_modelo').AsString :=  modelo.Marca_modelo;
+    ParamByName('id_fornecedor').AsInteger :=modelo.Fornecedor.Id;
+
+    try
+      Qry.ExecSQL;
+      Sucesso:=True;
+    Except
+    end;
+  end;
+  Result:=Sucesso;
+end;
+
+end.

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/07/18 13:44:48.522.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\RTTI\uPessoa.pas</Transaction>
+    <Transaction>2018/07/18 13:48:21.908.pas,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\RTTI\uPrincipal.pas</Transaction>
+    <Transaction>2018/07/18 13:48:21.908.dfm,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\RTTI\uPrincipal.dfm</Transaction>
+    <Transaction>2018/07/18 13:57:36.847.dproj,C:\Users\pc-cantelli\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\pc-cantelli\Documents\Programação 2018\Delphi\RTTI\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

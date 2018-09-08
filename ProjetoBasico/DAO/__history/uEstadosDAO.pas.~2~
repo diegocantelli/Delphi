@@ -1,0 +1,17 @@
+unit uEstadosDAO;
+
+interface
+uses
+  SysUtils,ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
+
+type
+
+TEstado = class
+  public
+    var function GetQryEstados:TZQuery;
+end;
+
+implementation
+
+end.

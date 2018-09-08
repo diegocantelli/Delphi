@@ -1,0 +1,42 @@
+unit uClienteDAO;
+
+interface
+uses
+  ZAbstractConnection, ZConnection, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, uSistemaController, uConexao;
+
+type
+  TClienteDAO = class
+    private
+      FConexao : TConexao;
+    public
+      constructor Create;
+      function Obter:TZQuery;
+  end;
+
+implementation
+
+{ TClienteDAO }
+
+constructor TClienteDAO.Create;
+begin
+  FConexao := TSistemaControll.GetInstance.Conexao;
+end;
+
+function TClienteDAO.Obter: TZQuery;
+var
+  VQuery:TZQuery;
+begin
+   VQuery := FConexao.CriarQuery;
+   VQuery.Close;
+   VQuery.SQL.Clear;
+   VQuery.SQL.Add('select id as Codigo, nome as Nome from clientes ');
+   try
+    VQuery.Open;
+    Result := VQuery;
+   except
+    VQuery.Free;
+   end;
+end;
+
+end.
